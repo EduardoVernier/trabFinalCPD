@@ -1,1 +1,0 @@
-O senhor é um viadinho!
