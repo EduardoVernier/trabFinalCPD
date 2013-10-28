@@ -22,8 +22,8 @@ typedef struct
 typedef struct
 {
     string nome;
-    int sizePubEventos;
-    int sizePubPeriodicos;
+    int nPubEventos;
+    int nPubPeriodicos;
     string instituicao;
     string area;
     vector <Trabalho> pubEventos;

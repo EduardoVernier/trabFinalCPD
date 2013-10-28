@@ -11,7 +11,7 @@ using namespace std;
 
 int parseProfessor(string path, dadosProfessor *temp){
     CMarkup xml;
-    int sizeTrab = 0, sizeArt = 0;
+    int nTrab = 0, nArt = 0;
 
     if(!xml.Load(path)){
         cout << "Erro de abertura do arquivo xml." << endl;
@@ -90,9 +90,9 @@ int parseProfessor(string path, dadosProfessor *temp){
         trab.titulo = xml.GetChildAttrib("TITULO-DO-TRABALHO");
         trab.ano = xml.GetChildAttrib("ANO-DO-TRABALHO");
         temp->pubEventos.push_back(trab);
-        sizeTrab++;
+        nTrab++;
     }
-    temp->sizePubEventos = sizeTrab;
+    temp->nPubEventos = nTrab;
     xml.ResetPos();
 
 
@@ -119,9 +119,9 @@ int parseProfessor(string path, dadosProfessor *temp){
         artigo.titulo = xml.GetChildAttrib("TITULO-DO-ARTIGO");
         artigo.ano = xml.GetChildAttrib("ANO-DO-ARTIGO");
         temp->pubPeriodicos.push_back(artigo);
-        sizeArt++;
+        nArt++;
     }
-    temp->sizePubPeriodicos = sizeArt;
+    temp->nPubPeriodicos = nArt;
 
 
     return SUCCESS;
