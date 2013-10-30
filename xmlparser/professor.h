@@ -32,8 +32,8 @@ typedef struct
 
 typedef struct
 {
-    int posNoArq;
-    string nome;
+    char nomeArquivo [30];
+    char nome [60];
     int nPEventos;
     int nPPeriodicos;
 } chavesProfessor;
@@ -41,5 +41,6 @@ typedef struct
 // == FUNCOES ==
 
 int parseProfessor(string path, dadosProfessor *temp);
+int getChavesProfessor(string path, chavesProfessor *temp);
 
 #endif // PROFESSOR_H

@@ -126,3 +126,87 @@ int parseProfessor(string path, dadosProfessor *temp){
 
     return SUCCESS;
 }
+
+
+int getChavesProfessor(string path, chavesProfessor *temp)
+{
+    CMarkup xml;
+    int nTrab = 0, nArt = 0;
+
+    if(!xml.Load(path)){
+        cout << "Erro de abertura do arquivo xml." << endl;
+        return 1;
+    }
+
+
+    strcpy (temp->nomeArquivo, path.c_str());
+    if (!xml.FindElem("CURRICULO-VITAE")){
+        cout << "Sem CV" << endl;
+        return ERROR;
+    }
+// ================ NOME ===================
+
+    xml.IntoElem(); //seta CV como tag pai
+
+    if(!xml.FindElem("DADOS-GERAIS")){
+        cout << "Sem DADOS-GERAIS." << endl;
+        return ERROR;
+    }
+    strcpy (temp->nome, xml.GetAttrib("NOME-COMPLETO").c_str());
+    //cout << temp.nome << endl;
+    xml.IntoElem(); // define DADOS-GERAIS como parent
+
+
+
+    xml.ResetPos();
+
+
+// ========= TRABALHOS EM EVENTOS ===================
+    xml.FindElem("CURRICULO-VITAE"); // se passou pelo primeiro findelem(curriculo vitae)
+    //passa por esse
+    xml.IntoElem(); //seta CV como tag pai
+
+    if(!xml.FindElem("PRODUCAO-BIBLIOGRAFICA")){
+        cout << "Sem PRODUCAO-BIBLIOGRAFICA." << endl;
+        return ERROR;
+    }
+    xml.IntoElem();
+
+    if(!xml.FindElem("TRABALHOS-EM-EVENTOS")){
+        cout << "Sem TRABALHOS-EM-EVENTOS." << endl;
+        return ERROR;
+    }
+    xml.IntoElem();// define TRABALHOS-EM-EVENTOS como parent
+
+    while(xml.FindElem()){
+        nTrab++;
+    }
+    temp->nPEventos = nTrab;
+    xml.ResetPos();
+
+
+// ========= ARTIGOS PUBLICADOS ===================
+    xml.FindElem("CURRICULO-VITAE"); // se passou pelo primeiro findelem(curriculo vitae)
+    //passa por esse
+    xml.IntoElem(); //seta CV como tag pai
+
+    if(!xml.FindElem("PRODUCAO-BIBLIOGRAFICA")){
+        cout << "Sem PRODUCAO-BIBLIOGRAFICA." << endl;
+        return ERROR;
+    }
+    xml.IntoElem();
+
+    if(!xml.FindElem("ARTIGOS-PUBLICADOS")){
+        cout << "Sem ARTIGOS-PUBLICADOS." << endl;
+        return ERROR;
+    }
+    xml.IntoElem();// define ARTIGOS-PUBLICADOS como parent
+
+    while(xml.FindElem()){
+        nArt++;
+    }
+    temp->nPPeriodicos = nArt;
+
+
+    return SUCCESS;
+}

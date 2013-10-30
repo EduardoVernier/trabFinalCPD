@@ -12,31 +12,31 @@ using namespace std;
 
 int main()
 {
-    dadosProfessor *prof = new dadosProfessor;
-    ifstream arqCurriculos ("files.txt");
+    chavesProfessor *prof = new chavesProfessor;
+    ifstream arqCurriculos ("files.txt"); // ls > files.txt
     string nomeArquivo;
+    int nProfs = 0;
+
+    vector <chavesProfessor> ordNome;
 
     if (arqCurriculos.is_open())
     {
         while (getline(arqCurriculos,nomeArquivo))
         {
-            parseProfessor(nomeArquivo,prof);
-
-            cout << prof->nome << endl;
-            cout << prof->instituicao << endl;
-            cout << prof->area << endl;
-            cout << "Numero de Publicacoes em Eventos: " << prof->nPubEventos << endl;
-            cout << "Numero de Publicacoes em Periodicos: " << prof->nPubPeriodicos << endl;
-
-            cout << endl;
+            if (getChavesProfessor(nomeArquivo,prof)==0) // success
+            {
+                nProfs++;
+                ordNome.push_back(*prof);
+            }
         }
         arqCurriculos.close();
     }
 
+    for (unsigned i = 0; i < ordNome.size();i++)
+        cout << (ordNome.at(i)).nome << "  " << (ordNome.at(i)).nomeArquivo << endl;
 
 
     //parseProfessor("0455487141833418.xml",prof);
 
 }
 
-// Dica: ls > files.txt
