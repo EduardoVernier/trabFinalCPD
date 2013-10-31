@@ -5,9 +5,11 @@ CONFIG -= qt
 
 SOURCES += main.cpp \
     Markup.cpp \
-    professor.cpp
+    professor.cpp \
+    files.cpp
 
 HEADERS += \
     Markup.h \
-    professor.h
+    professor.h \
+    files.h
 

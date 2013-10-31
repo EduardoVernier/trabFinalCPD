@@ -42,5 +42,7 @@ typedef struct
 
 int parseProfessor(string path, dadosProfessor *temp);
 int getChavesProfessor(string path, chavesProfessor *temp);
+bool comparaNome(const chavesProfessor &a, const chavesProfessor &b);
+
 
 #endif // PROFESSOR_H

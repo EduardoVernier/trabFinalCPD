@@ -167,7 +167,7 @@ int getChavesProfessor(string path, chavesProfessor *temp)
     xml.IntoElem(); //seta CV como tag pai
 
     if(!xml.FindElem("PRODUCAO-BIBLIOGRAFICA")){
-        cout << "Sem PRODUCAO-BIBLIOGRAFICA." << endl;
+        cout << "Sem PRODUCAO-BIBLIOGRAFICA." <<temp->nome<< endl;
         return ERROR;
     }
     xml.IntoElem();
@@ -191,13 +191,13 @@ int getChavesProfessor(string path, chavesProfessor *temp)
     xml.IntoElem(); //seta CV como tag pai
 
     if(!xml.FindElem("PRODUCAO-BIBLIOGRAFICA")){
-        cout << "Sem PRODUCAO-BIBLIOGRAFICA." << endl;
+        cout << "Sem PRODUCAO-BIBLIOGRAFICA."<<temp->nome << endl;
         return ERROR;
     }
     xml.IntoElem();
 
     if(!xml.FindElem("ARTIGOS-PUBLICADOS")){
-        cout << "Sem ARTIGOS-PUBLICADOS." << endl;
+        cout << "Sem ARTIGOS-PUBLICADOS."<<temp->nome << endl;
         return ERROR;
     }
     xml.IntoElem();// define ARTIGOS-PUBLICADOS como parent
@@ -210,3 +210,9 @@ int getChavesProfessor(string path, chavesProfessor *temp)
 
     return SUCCESS;
 }
+
+bool comparaNome(const chavesProfessor &a, const chavesProfessor &b)
+{
+    return string (a.nome) < string (b.nome);
+}
+
