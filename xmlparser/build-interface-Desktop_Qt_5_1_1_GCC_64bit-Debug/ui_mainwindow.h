@@ -16,8 +16,9 @@
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
-#include <QtWidgets/QListView>
+#include <QtWidgets/QListWidget>
 #include <QtWidgets/QMainWindow>
+#include <QtWidgets/QPushButton>
 #include <QtWidgets/QStatusBar>
 #include <QtWidgets/QWidget>
 
@@ -30,9 +31,10 @@ public:
     QAction *actionExit;
     QWidget *centralWidget;
     QLabel *Logo;
-    QListView *list_professor;
-    QLabel *label_professor;
-    QLineEdit *search_input;
+    QListWidget *listWidget;
+    QPushButton *pushButton;
+    QLineEdit *lineEdit;
+    QListWidget *listWidget_2;
     QStatusBar *statusBar;
 
     void setupUi(QMainWindow *MainWindow)
@@ -46,7 +48,7 @@ public:
         QBrush brush(QColor(255, 255, 255, 255));
         brush.setStyle(Qt::SolidPattern);
         palette.setBrush(QPalette::Active, QPalette::WindowText, brush);
-        QBrush brush1(QColor(241, 242, 240, 255));
+        QBrush brush1(QColor(241, 241, 241, 255));
         brush1.setStyle(Qt::SolidPattern);
         palette.setBrush(QPalette::Active, QPalette::Button, brush1);
         QBrush brush2(QColor(63, 63, 64, 255));
@@ -107,7 +109,7 @@ public:
         palette.setBrush(QPalette::Disabled, QPalette::ToolTipBase, brush7);
         palette.setBrush(QPalette::Disabled, QPalette::ToolTipText, brush6);
         MainWindow->setPalette(palette);
-        MainWindow->setStyleSheet(QStringLiteral("background: #f1f2f0;"));
+        MainWindow->setStyleSheet(QStringLiteral("background: #f1f1f1;"));
         actionLoad_Files = new QAction(MainWindow);
         actionLoad_Files->setObjectName(QStringLiteral("actionLoad_Files"));
         actionExit = new QAction(MainWindow);
@@ -116,7 +118,7 @@ public:
         centralWidget->setObjectName(QStringLiteral("centralWidget"));
         Logo = new QLabel(centralWidget);
         Logo->setObjectName(QStringLiteral("Logo"));
-        Logo->setGeometry(QRect(10, 10, 251, 41));
+        Logo->setGeometry(QRect(10, 10, 331, 41));
         QFont font;
         font.setFamily(QStringLiteral("Cantarell"));
         font.setPointSize(26);
@@ -124,22 +126,37 @@ public:
         font.setItalic(false);
         font.setWeight(50);
         Logo->setFont(font);
-        Logo->setStyleSheet(QStringLiteral("border-bottom: 1px solid #8fa68e;"));
-        list_professor = new QListView(centralWidget);
-        list_professor->setObjectName(QStringLiteral("list_professor"));
-        list_professor->setGeometry(QRect(10, 100, 256, 321));
-        label_professor = new QLabel(centralWidget);
-        label_professor->setObjectName(QStringLiteral("label_professor"));
-        label_professor->setGeometry(QRect(10, 70, 81, 21));
-        search_input = new QLineEdit(centralWidget);
-        search_input->setObjectName(QStringLiteral("search_input"));
-        search_input->setGeometry(QRect(150, 70, 113, 21));
+        Logo->setStyleSheet(QStringLiteral("border-bottom: 1px solid #d3d4aa;"));
+        listWidget = new QListWidget(centralWidget);
+        new QListWidgetItem(listWidget);
+        new QListWidgetItem(listWidget);
+        new QListWidgetItem(listWidget);
+        listWidget->setObjectName(QStringLiteral("listWidget"));
+        listWidget->setGeometry(QRect(10, 120, 501, 291));
+        listWidget->setStyleSheet(QStringLiteral("border-radius: 10px; background: #e7e7e7;"));
+        pushButton = new QPushButton(centralWidget);
+        pushButton->setObjectName(QStringLiteral("pushButton"));
+        pushButton->setGeometry(QRect(420, 70, 91, 41));
+        pushButton->setStyleSheet(QLatin1String("QPushButton#pushButton {\n"
+"    background: #bbbbbb;\n"
+"	border: 1px solid #888888;\n"
+"	border-radius: 5px;\n"
+" }\n"
+" QPushButton#pushButton:pressed {\n"
+"     background: #999999;   \n"
+" }"));
+        lineEdit = new QLineEdit(centralWidget);
+        lineEdit->setObjectName(QStringLiteral("lineEdit"));
+        lineEdit->setGeometry(QRect(10, 70, 401, 41));
+        listWidget_2 = new QListWidget(centralWidget);
+        listWidget_2->setObjectName(QStringLiteral("listWidget_2"));
+        listWidget_2->setGeometry(QRect(525, 10, 421, 411));
         MainWindow->setCentralWidget(centralWidget);
         statusBar = new QStatusBar(MainWindow);
         statusBar->setObjectName(QStringLiteral("statusBar"));
         QPalette palette1;
         palette1.setBrush(QPalette::Active, QPalette::WindowText, brush6);
-        QBrush brush9(QColor(204, 197, 158, 255));
+        QBrush brush9(QColor(68, 68, 68, 255));
         brush9.setStyle(Qt::SolidPattern);
         palette1.setBrush(QPalette::Active, QPalette::Button, brush9);
         palette1.setBrush(QPalette::Active, QPalette::Text, brush6);
@@ -158,7 +175,7 @@ public:
         palette1.setBrush(QPalette::Disabled, QPalette::Base, brush9);
         palette1.setBrush(QPalette::Disabled, QPalette::Window, brush9);
         statusBar->setPalette(palette1);
-        statusBar->setStyleSheet(QStringLiteral("background-color: #ccc59e;"));
+        statusBar->setStyleSheet(QStringLiteral("background-color: #444444;"));
         MainWindow->setStatusBar(statusBar);
 
         retranslateUi(MainWindow);
@@ -171,9 +188,19 @@ public:
         MainWindow->setWindowTitle(QApplication::translate("MainWindow", "MainWindow", 0));
         actionLoad_Files->setText(QApplication::translate("MainWindow", "Load Files", 0));
         actionExit->setText(QApplication::translate("MainWindow", "Exit", 0));
-        Logo->setText(QApplication::translate("MainWindow", "<html><head/><body><p><span style=\" color:#332f29;\">Search</span><span style=\" color:#cc3910;\">Professor</span></p></body></html>", 0));
-        label_professor->setText(QApplication::translate("MainWindow", "<html><head/><body><p><span style=\" font-size:10pt;\">Professores:</span></p></body></html>", 0));
-        search_input->setText(QApplication::translate("MainWindow", "Busca...", 0));
+        Logo->setText(QApplication::translate("MainWindow", "<html><head/><body><p><span style=\" color:#444444;\">Indexador</span><span style=\" color:#901808;\">Maluco</span><span style=\" color:#D3D4AA;;\">24</span></p></body></html>", 0));
+
+        const bool __sortingEnabled = listWidget->isSortingEnabled();
+        listWidget->setSortingEnabled(false);
+        QListWidgetItem *___qlistwidgetitem = listWidget->item(0);
+        ___qlistwidgetitem->setText(QApplication::translate("MainWindow", "Ahoy", 0));
+        QListWidgetItem *___qlistwidgetitem1 = listWidget->item(1);
+        ___qlistwidgetitem1->setText(QApplication::translate("MainWindow", "Arrrr!", 0));
+        QListWidgetItem *___qlistwidgetitem2 = listWidget->item(2);
+        ___qlistwidgetitem2->setText(QApplication::translate("MainWindow", "Prepare to be boarded!", 0));
+        listWidget->setSortingEnabled(__sortingEnabled);
+
+        pushButton->setText(QApplication::translate("MainWindow", "VOILA!", 0));
     } // retranslateUi
 
 };
