@@ -37,9 +37,9 @@
      <colorrole role="Button">
       <brush brushstyle="SolidPattern">
        <color alpha="255">
-        <red>255</red>
-        <green>255</green>
-        <blue>255</blue>
+        <red>245</red>
+        <green>245</green>
+        <blue>245</blue>
        </color>
       </brush>
      </colorrole>
@@ -109,18 +109,18 @@
      <colorrole role="Base">
       <brush brushstyle="SolidPattern">
        <color alpha="255">
-        <red>255</red>
-        <green>255</green>
-        <blue>255</blue>
+        <red>245</red>
+        <green>245</green>
+        <blue>245</blue>
        </color>
       </brush>
      </colorrole>
      <colorrole role="Window">
       <brush brushstyle="SolidPattern">
        <color alpha="255">
-        <red>255</red>
-        <green>255</green>
-        <blue>255</blue>
+        <red>245</red>
+        <green>245</green>
+        <blue>245</blue>
        </color>
       </brush>
      </colorrole>
@@ -174,9 +174,9 @@
      <colorrole role="Button">
       <brush brushstyle="SolidPattern">
        <color alpha="255">
-        <red>255</red>
-        <green>255</green>
-        <blue>255</blue>
+        <red>245</red>
+        <green>245</green>
+        <blue>245</blue>
        </color>
       </brush>
      </colorrole>
@@ -246,18 +246,18 @@
      <colorrole role="Base">
       <brush brushstyle="SolidPattern">
        <color alpha="255">
-        <red>255</red>
-        <green>255</green>
-        <blue>255</blue>
+        <red>245</red>
+        <green>245</green>
+        <blue>245</blue>
        </color>
       </brush>
      </colorrole>
      <colorrole role="Window">
       <brush brushstyle="SolidPattern">
        <color alpha="255">
-        <red>255</red>
-        <green>255</green>
-        <blue>255</blue>
+        <red>245</red>
+        <green>245</green>
+        <blue>245</blue>
        </color>
       </brush>
      </colorrole>
@@ -311,9 +311,9 @@
      <colorrole role="Button">
       <brush brushstyle="SolidPattern">
        <color alpha="255">
-        <red>255</red>
-        <green>255</green>
-        <blue>255</blue>
+        <red>245</red>
+        <green>245</green>
+        <blue>245</blue>
        </color>
       </brush>
      </colorrole>
@@ -383,18 +383,18 @@
      <colorrole role="Base">
       <brush brushstyle="SolidPattern">
        <color alpha="255">
-        <red>255</red>
-        <green>255</green>
-        <blue>255</blue>
+        <red>245</red>
+        <green>245</green>
+        <blue>245</blue>
        </color>
       </brush>
      </colorrole>
      <colorrole role="Window">
       <brush brushstyle="SolidPattern">
        <color alpha="255">
-        <red>255</red>
-        <green>255</green>
-        <blue>255</blue>
+        <red>245</red>
+        <green>245</green>
+        <blue>245</blue>
        </color>
       </brush>
      </colorrole>
@@ -441,14 +441,14 @@
    <string>MainWindow</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">background: #FFFFFF;</string>
+   <string notr="true">background: #f5f5f5;</string>
   </property>
   <widget class="QWidget" name="centralWidget">
    <widget class="QLabel" name="Logo">
     <property name="geometry">
      <rect>
-      <x>90</x>
-      <y>10</y>
+      <x>320</x>
+      <y>0</y>
       <width>311</width>
       <height>41</height>
      </rect>
@@ -473,9 +473,9 @@
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>120</y>
-      <width>501</width>
-      <height>291</height>
+      <y>140</y>
+      <width>921</width>
+      <height>271</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -497,23 +497,23 @@
      </property>
     </item>
    </widget>
-   <widget class="QPushButton" name="pushButton">
+   <widget class="QPushButton" name="searchButton">
     <property name="geometry">
      <rect>
-      <x>420</x>
-      <y>70</y>
+      <x>680</x>
+      <y>50</y>
       <width>91</width>
       <height>41</height>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">QPushButton#pushButton {
+     <string notr="true">QPushButton#searchButton {
     background: #0092b2;
 	color: #ffffff;
 	border: 1px solid #888888;
 	border-radius: 5px;
  }
- QPushButton#pushButton:pressed {
+ QPushButton#searchButton:pressed {
      background: #007d99;   
  }</string>
     </property>
@@ -521,27 +521,38 @@
      <string>VOILA!</string>
     </property>
    </widget>
-   <widget class="QLineEdit" name="lineEdit">
+   <widget class="QLineEdit" name="searchBar">
     <property name="geometry">
      <rect>
-      <x>10</x>
-      <y>70</y>
+      <x>270</x>
+      <y>50</y>
       <width>401</width>
       <height>41</height>
      </rect>
     </property>
    </widget>
-   <widget class="QListWidget" name="listWidget_2">
+   <widget class="QPushButton" name="descAlfa">
     <property name="geometry">
      <rect>
-      <x>525</x>
-      <y>10</y>
-      <width>421</width>
-      <height>401</height>
+      <x>10</x>
+      <y>110</y>
+      <width>80</width>
+      <height>23</height>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">border: 1px solid #ccc; border-radius: 5px; background: #f5f5f5; color: #444444;</string>
+     <string notr="true">QPushButton#descAlfa{
+	background: #0092b2;
+	border: 1px solid #444;
+	border-radius: 5px;
+	color: white;
+}
+QPushButton#descAlfa:pressed{
+	background: black;
+}</string>
+    </property>
+    <property name="text">
+     <string>^ Alfabetica</string>
     </property>
    </widget>
   </widget>

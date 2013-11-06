@@ -18,9 +18,11 @@ public:
 
 private slots:
 
-    void on_pushButton_clicked();
+    void on_searchButton_clicked();
 
     void on_listWidget_itemDoubleClicked(QListWidgetItem *item);
+
+    void on_descAlfa_clicked();
 
 private:
     Ui::MainWindow *ui;
