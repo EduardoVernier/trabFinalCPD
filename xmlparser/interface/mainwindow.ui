@@ -37,9 +37,9 @@
      <colorrole role="Button">
       <brush brushstyle="SolidPattern">
        <color alpha="255">
-        <red>241</red>
-        <green>241</green>
-        <blue>241</blue>
+        <red>255</red>
+        <green>255</green>
+        <blue>255</blue>
        </color>
       </brush>
      </colorrole>
@@ -109,18 +109,18 @@
      <colorrole role="Base">
       <brush brushstyle="SolidPattern">
        <color alpha="255">
-        <red>241</red>
-        <green>241</green>
-        <blue>241</blue>
+        <red>255</red>
+        <green>255</green>
+        <blue>255</blue>
        </color>
       </brush>
      </colorrole>
      <colorrole role="Window">
       <brush brushstyle="SolidPattern">
        <color alpha="255">
-        <red>241</red>
-        <green>241</green>
-        <blue>241</blue>
+        <red>255</red>
+        <green>255</green>
+        <blue>255</blue>
        </color>
       </brush>
      </colorrole>
@@ -174,9 +174,9 @@
      <colorrole role="Button">
       <brush brushstyle="SolidPattern">
        <color alpha="255">
-        <red>241</red>
-        <green>241</green>
-        <blue>241</blue>
+        <red>255</red>
+        <green>255</green>
+        <blue>255</blue>
        </color>
       </brush>
      </colorrole>
@@ -246,18 +246,18 @@
      <colorrole role="Base">
       <brush brushstyle="SolidPattern">
        <color alpha="255">
-        <red>241</red>
-        <green>241</green>
-        <blue>241</blue>
+        <red>255</red>
+        <green>255</green>
+        <blue>255</blue>
        </color>
       </brush>
      </colorrole>
      <colorrole role="Window">
       <brush brushstyle="SolidPattern">
        <color alpha="255">
-        <red>241</red>
-        <green>241</green>
-        <blue>241</blue>
+        <red>255</red>
+        <green>255</green>
+        <blue>255</blue>
        </color>
       </brush>
      </colorrole>
@@ -311,9 +311,9 @@
      <colorrole role="Button">
       <brush brushstyle="SolidPattern">
        <color alpha="255">
-        <red>241</red>
-        <green>241</green>
-        <blue>241</blue>
+        <red>255</red>
+        <green>255</green>
+        <blue>255</blue>
        </color>
       </brush>
      </colorrole>
@@ -383,18 +383,18 @@
      <colorrole role="Base">
       <brush brushstyle="SolidPattern">
        <color alpha="255">
-        <red>241</red>
-        <green>241</green>
-        <blue>241</blue>
+        <red>255</red>
+        <green>255</green>
+        <blue>255</blue>
        </color>
       </brush>
      </colorrole>
      <colorrole role="Window">
       <brush brushstyle="SolidPattern">
        <color alpha="255">
-        <red>241</red>
-        <green>241</green>
-        <blue>241</blue>
+        <red>255</red>
+        <green>255</green>
+        <blue>255</blue>
        </color>
       </brush>
      </colorrole>
@@ -441,15 +441,15 @@
    <string>MainWindow</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">background: #f1f1f1;</string>
+   <string notr="true">background: #FFFFFF;</string>
   </property>
   <widget class="QWidget" name="centralWidget">
    <widget class="QLabel" name="Logo">
     <property name="geometry">
      <rect>
-      <x>10</x>
+      <x>90</x>
       <y>10</y>
-      <width>331</width>
+      <width>311</width>
       <height>41</height>
      </rect>
     </property>
@@ -466,7 +466,7 @@
      <string notr="true">border-bottom: 1px solid #d3d4aa;</string>
     </property>
     <property name="text">
-     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#444444;&quot;&gt;Indexador&lt;/span&gt;&lt;span style=&quot; color:#901808;&quot;&gt;Maluco&lt;/span&gt;&lt;span style=&quot; color:#D3D4AA;;&quot;&gt;24&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#444444;&quot;&gt;Indexador&lt;/span&gt;&lt;span style=&quot; color:#A8C54A;&quot;&gt;Maluco&lt;/span&gt;&lt;span style=&quot; color:#0092b2;&quot;&gt;24&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
    </widget>
    <widget class="QListWidget" name="listWidget">
@@ -479,7 +479,7 @@
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">border-radius: 10px; background: #e7e7e7;</string>
+     <string notr="true">border: 1px solid #ccc; border-radius: 5px; background: #f5f5f5; color: #444444;</string>
     </property>
     <item>
      <property name="text">
@@ -508,12 +508,13 @@
     </property>
     <property name="styleSheet">
      <string notr="true">QPushButton#pushButton {
-    background: #bbbbbb;
+    background: #0092b2;
+	color: #ffffff;
 	border: 1px solid #888888;
 	border-radius: 5px;
  }
  QPushButton#pushButton:pressed {
-     background: #999999;   
+     background: #007d99;   
  }</string>
     </property>
     <property name="text">
@@ -536,8 +537,11 @@
       <x>525</x>
       <y>10</y>
       <width>421</width>
-      <height>411</height>
+      <height>401</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border: 1px solid #ccc; border-radius: 5px; background: #f5f5f5; color: #444444;</string>
     </property>
    </widget>
   </widget>
