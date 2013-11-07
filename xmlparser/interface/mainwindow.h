@@ -2,7 +2,7 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
-#include <QListWidgetItem>
+#include <qtablewidget.h>m>
 
 namespace Ui {
 class MainWindow;
@@ -21,6 +21,8 @@ private slots:
     void on_searchButton_clicked();
 
     void on_descAlfa_clicked();
+
+    void on_tableWidget_itemDoubleClicked(QTableWidgetItem *item);
 
 private:
     Ui::MainWindow *ui;

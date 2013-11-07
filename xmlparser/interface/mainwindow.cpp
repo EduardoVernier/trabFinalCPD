@@ -28,3 +28,9 @@ void MainWindow::on_descAlfa_clicked()
 {
     QString string;
 }
+
+void MainWindow::on_tableWidget_itemDoubleClicked(QTableWidgetItem *item)
+{
+    Detalhes *dtwindow = new Detalhes;
+    dtwindow->show();
+}
