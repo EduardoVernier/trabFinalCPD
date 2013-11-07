@@ -16,10 +16,10 @@
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
-#include <QtWidgets/QListWidget>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QStatusBar>
+#include <QtWidgets/QTableWidget>
 #include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -31,10 +31,10 @@ public:
     QAction *actionExit;
     QWidget *centralWidget;
     QLabel *Logo;
-    QListWidget *listWidget;
     QPushButton *searchButton;
     QLineEdit *searchBar;
     QPushButton *descAlfa;
+    QTableWidget *tableWidget;
     QStatusBar *statusBar;
 
     void setupUi(QMainWindow *MainWindow)
@@ -109,7 +109,7 @@ public:
         palette.setBrush(QPalette::Disabled, QPalette::ToolTipBase, brush7);
         palette.setBrush(QPalette::Disabled, QPalette::ToolTipText, brush6);
         MainWindow->setPalette(palette);
-        MainWindow->setStyleSheet(QStringLiteral("background: #f5f5f5;"));
+        MainWindow->setStyleSheet(QStringLiteral("background: url(:/new/prefix1/resources/diamond_upholstery/bg.png);"));
         actionLoad_Files = new QAction(MainWindow);
         actionLoad_Files->setObjectName(QStringLiteral("actionLoad_Files"));
         actionExit = new QAction(MainWindow);
@@ -127,13 +127,6 @@ public:
         font.setWeight(50);
         Logo->setFont(font);
         Logo->setStyleSheet(QStringLiteral("border-bottom: 1px solid #d3d4aa;"));
-        listWidget = new QListWidget(centralWidget);
-        new QListWidgetItem(listWidget);
-        new QListWidgetItem(listWidget);
-        new QListWidgetItem(listWidget);
-        listWidget->setObjectName(QStringLiteral("listWidget"));
-        listWidget->setGeometry(QRect(10, 140, 921, 271));
-        listWidget->setStyleSheet(QStringLiteral("border: 1px solid #ccc; border-radius: 5px; background: #f5f5f5; color: #444444;"));
         searchButton = new QPushButton(centralWidget);
         searchButton->setObjectName(QStringLiteral("searchButton"));
         searchButton->setGeometry(QRect(680, 50, 91, 41));
@@ -161,6 +154,35 @@ public:
 "QPushButton#descAlfa:pressed{\n"
 "	background: black;\n"
 "}"));
+        tableWidget = new QTableWidget(centralWidget);
+        if (tableWidget->columnCount() < 5)
+            tableWidget->setColumnCount(5);
+        QTableWidgetItem *__qtablewidgetitem = new QTableWidgetItem();
+        tableWidget->setHorizontalHeaderItem(0, __qtablewidgetitem);
+        QTableWidgetItem *__qtablewidgetitem1 = new QTableWidgetItem();
+        tableWidget->setHorizontalHeaderItem(1, __qtablewidgetitem1);
+        QTableWidgetItem *__qtablewidgetitem2 = new QTableWidgetItem();
+        tableWidget->setHorizontalHeaderItem(2, __qtablewidgetitem2);
+        QTableWidgetItem *__qtablewidgetitem3 = new QTableWidgetItem();
+        tableWidget->setHorizontalHeaderItem(3, __qtablewidgetitem3);
+        QTableWidgetItem *__qtablewidgetitem4 = new QTableWidgetItem();
+        tableWidget->setHorizontalHeaderItem(4, __qtablewidgetitem4);
+        tableWidget->setObjectName(QStringLiteral("tableWidget"));
+        tableWidget->setGeometry(QRect(10, 140, 921, 271));
+        tableWidget->setStyleSheet(QStringLiteral("background: #f0f0f0;"));
+        tableWidget->setEditTriggers(QAbstractItemView::NoEditTriggers);
+        tableWidget->setSelectionMode(QAbstractItemView::SingleSelection);
+        tableWidget->setSelectionBehavior(QAbstractItemView::SelectRows);
+        tableWidget->setCornerButtonEnabled(false);
+        tableWidget->horizontalHeader()->setVisible(true);
+        tableWidget->horizontalHeader()->setCascadingSectionResizes(true);
+        tableWidget->horizontalHeader()->setDefaultSectionSize(180);
+        tableWidget->horizontalHeader()->setHighlightSections(true);
+        tableWidget->horizontalHeader()->setMinimumSectionSize(20);
+        tableWidget->horizontalHeader()->setProperty("showSortIndicator", QVariant(false));
+        tableWidget->horizontalHeader()->setStretchLastSection(true);
+        tableWidget->verticalHeader()->setVisible(false);
+        tableWidget->verticalHeader()->setCascadingSectionResizes(false);
         MainWindow->setCentralWidget(centralWidget);
         statusBar = new QStatusBar(MainWindow);
         statusBar->setObjectName(QStringLiteral("statusBar"));
@@ -199,19 +221,18 @@ public:
         actionLoad_Files->setText(QApplication::translate("MainWindow", "Load Files", 0));
         actionExit->setText(QApplication::translate("MainWindow", "Exit", 0));
         Logo->setText(QApplication::translate("MainWindow", "<html><head/><body><p><span style=\" color:#444444;\">Indexador</span><span style=\" color:#A8C54A;\">Maluco</span><span style=\" color:#0092b2;\">24</span></p></body></html>", 0));
-
-        const bool __sortingEnabled = listWidget->isSortingEnabled();
-        listWidget->setSortingEnabled(false);
-        QListWidgetItem *___qlistwidgetitem = listWidget->item(0);
-        ___qlistwidgetitem->setText(QApplication::translate("MainWindow", "Ahoy", 0));
-        QListWidgetItem *___qlistwidgetitem1 = listWidget->item(1);
-        ___qlistwidgetitem1->setText(QApplication::translate("MainWindow", "Arrrr!", 0));
-        QListWidgetItem *___qlistwidgetitem2 = listWidget->item(2);
-        ___qlistwidgetitem2->setText(QApplication::translate("MainWindow", "Prepare to be boarded!", 0));
-        listWidget->setSortingEnabled(__sortingEnabled);
-
         searchButton->setText(QApplication::translate("MainWindow", "VOILA!", 0));
         descAlfa->setText(QApplication::translate("MainWindow", "^ Alfabetica", 0));
+        QTableWidgetItem *___qtablewidgetitem = tableWidget->horizontalHeaderItem(0);
+        ___qtablewidgetitem->setText(QApplication::translate("MainWindow", "Nome", 0));
+        QTableWidgetItem *___qtablewidgetitem1 = tableWidget->horizontalHeaderItem(1);
+        ___qtablewidgetitem1->setText(QApplication::translate("MainWindow", "Institui\303\247\303\243o", 0));
+        QTableWidgetItem *___qtablewidgetitem2 = tableWidget->horizontalHeaderItem(2);
+        ___qtablewidgetitem2->setText(QApplication::translate("MainWindow", "Numero de Artigos ao todo", 0));
+        QTableWidgetItem *___qtablewidgetitem3 = tableWidget->horizontalHeaderItem(3);
+        ___qtablewidgetitem3->setText(QApplication::translate("MainWindow", "Artigos em publica\303\247oes", 0));
+        QTableWidgetItem *___qtablewidgetitem4 = tableWidget->horizontalHeaderItem(4);
+        ___qtablewidgetitem4->setText(QApplication::translate("MainWindow", "Artigos em Eventos", 0));
     } // retranslateUi
 
 };

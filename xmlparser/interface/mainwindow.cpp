@@ -18,13 +18,10 @@ void MainWindow::on_searchButton_clicked()
 {
     QString text;
     text = ui->searchBar->text();
-    ui->listWidget->addItem(new QListWidgetItem(text));
+    QTableWidgetItem *item = new QTableWidgetItem(text);
+    ui->tableWidget->insertRow(0);
+    ui->tableWidget->setItem(0,0,item);
 
-}
-
-void MainWindow::on_listWidget_itemDoubleClicked(QListWidgetItem *item)
-{
-    QString text = ui->listWidget->currentItem()->text();
 }
 
 void MainWindow::on_descAlfa_clicked()
