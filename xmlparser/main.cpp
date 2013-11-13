@@ -5,6 +5,7 @@
 #include <vector>
 #include <fstream>
 #include <algorithm>
+
 #include "professor.h"
 
 #define ERROR -1
@@ -20,6 +21,7 @@ int main()
     int nProfs = 0;
     int letras [27];
     vector <chavesProfessor> ordNome;
+
 
     // Inicializa array de iniciais
     for (int i=0; i < 27; i++)
@@ -40,7 +42,7 @@ int main()
                 else letras [26]++;
 
 
-                }
+            }
         }
         arqCurriculos.close();
     }
@@ -51,33 +53,35 @@ int main()
     sort (ordNome.begin(),ordNome.end(),comparaNome);
     cout << "\n\n";
 
-    for (unsigned i = 0; i < ordNome.size();i++)
-        cout << (ordNome.at(i)).nome << "  " << (ordNome.at(i)).nomeArquivo << endl;
+    // Imprime nome de todos os professores contabilizados
+    // for (unsigned i = 0; i < ordNome.size();i++)
+    //     cout << (ordNome.at(i)).nome << "  " << (ordNome.at(i)).nomeArquivo << endl;
 
 
-    for (int i=0; i < 27; i++)
-    {
-       cout<< letras[i] << endl;
-    }
-
-    // Acumula array
+    // Acumula array de letras
     int cumulativo[27];
     cumulativo[0] = 0;
     for (int i=1; i < 27; i++)
-    {
         cumulativo[i] = letras[i-1] + cumulativo[i-1];
+
+
+
+    // Escreve o array cumulativo no arquivo como um inteiro de 4 bytes
+    for (int i=0; i < 27; i++)
+        arqChaves.write((char*)(cumulativo+i), sizeof(int));
+
+
+
+    // Escreve os nomes dos professores e nomes dos arquivos XML no arquivo de chaves
+    for (unsigned i = 0; i < ordNome.size(); i++)
+    {
+        arqChaves << (ordNome.at(i)).nome;
+        arqChaves << (ordNome.at(i)).nomeArquivo;
     }
 
-    // Escreve o array cumulativo no arquivo
-    for (int i=0; i < 27; i++)
-    {
-        arqChaves.write((char*)(cumulativo+i), sizeof(int));
-        //cout<<char(i+65)<< "  " << cumulativo[i] << endl;
-    }
+
 
     arqChaves.close();
-
-
 
 }
 
