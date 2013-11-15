@@ -1,3 +1,5 @@
+#include "mainwindow.h"
+#include "ui_mainwindow.h"
 #include <iostream>
 #include <cstdio>
 #include <Markup.h>
@@ -5,15 +7,19 @@
 #include <vector>
 #include <fstream>
 #include <algorithm>
-
+#include <string>
 #include "professor.h"
 
 #define ERROR -1
 #define SUCCESS 0
 using namespace std;
 
-int main()
+
+MainWindow::MainWindow(QWidget *parent) :  QMainWindow(parent),  ui(new Ui::MainWindow)
 {
+    ui->setupUi(this);
+
+
     chavesProfessor *prof = new chavesProfessor;
     ifstream arqCurriculos ("files.txt"); // ls > files.txt
     ofstream arqChaves ("chaves.bin",std::ofstream::binary);
@@ -80,16 +86,28 @@ int main()
     }
 
 
+    for (unsigned i = 0; i < ordNome.size(); i++)
+    {
+        //string nome = (string) (ordNome.at(i)).nome;
+
+        //ui->Logo->setText("hue");
+    }
+
+    for (unsigned i = 0; i < ordNome.size(); i++)
+    {
+        // Escreve no tableWidget
+        QString text = (ordNome.at(i)).nome;
+        QTableWidgetItem *item = new QTableWidgetItem(text);
+        ui->tableWidget->insertRow(i);
+        ui->tableWidget->setItem(i,0,item);
+    }
+
 
     arqChaves.close();
 
 }
 
-
-
-
-
-
-
-
-
+MainWindow::~MainWindow()
+{
+    delete ui;
+}
