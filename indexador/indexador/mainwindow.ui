@@ -13,6 +13,9 @@
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">background: url(:/new/prefix1/res/bg.png);</string>
+  </property>
   <widget class="QWidget" name="centralWidget">
    <widget class="QTableWidget" name="tableWidget">
     <property name="geometry">
@@ -20,7 +23,7 @@
       <x>10</x>
       <y>170</y>
       <width>921</width>
-      <height>271</height>
+      <height>371</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -65,19 +68,12 @@
     <attribute name="verticalHeaderCascadingSectionResizes">
      <bool>false</bool>
     </attribute>
+    <attribute name="verticalHeaderStretchLastSection">
+     <bool>false</bool>
+    </attribute>
     <column>
      <property name="text">
       <string>Nome</string>
-     </property>
-    </column>
-    <column>
-     <property name="text">
-      <string>Instituição</string>
-     </property>
-    </column>
-    <column>
-     <property name="text">
-      <string>Numero de Artigos ao todo</string>
      </property>
     </column>
     <column>
@@ -90,25 +86,31 @@
       <string>Artigos em Eventos</string>
      </property>
     </column>
+    <column>
+     <property name="text">
+      <string>Numero de Artigos ao todo</string>
+     </property>
+    </column>
    </widget>
    <widget class="QPushButton" name="searchButton">
     <property name="geometry">
      <rect>
-      <x>680</x>
-      <y>80</y>
+      <x>670</x>
+      <y>70</y>
       <width>91</width>
       <height>41</height>
      </rect>
     </property>
     <property name="styleSheet">
      <string notr="true">QPushButton#searchButton {
-    background: #0092b2;
+	outline: none;
+    background: #555555;
 	color: #ffffff;
-	border: 1px solid #888888;
-	border-radius: 5px;
+	border-radius: 3px;
  }
  QPushButton#searchButton:pressed {
-     background: #007d99;   
+	outline: none;
+    background: #404040;
  }</string>
     </property>
     <property name="text">
@@ -118,39 +120,47 @@
    <widget class="QPushButton" name="descAlfa">
     <property name="geometry">
      <rect>
-      <x>10</x>
-      <y>140</y>
-      <width>80</width>
-      <height>23</height>
+      <x>580</x>
+      <y>120</y>
+      <width>41</width>
+      <height>41</height>
      </rect>
     </property>
     <property name="styleSheet">
      <string notr="true">QPushButton#descAlfa{
-	background: #0092b2;
-	border: 1px solid #444;
-	border-radius: 5px;
-	color: white;
+	outline: none;
+	background: #f3f3f3;
+	background-image: url(:/new/prefix1/res/alfabeticadecresc.png);
+	background-repeat: no-repeat;
+	background-position: center;
+	border: 4px solid #c0c0c0;
+	border-radius: 10px;
 }
 QPushButton#descAlfa:pressed{
-	background: black;
+	outline: none;
+	background: #f0f0f0;
+	background-image: url(:/new/prefix1/res/alfabeticadecresc.png);
+	background-repeat: no-repeat;
+	background-position: center;
+	border: 4px solid #a8c54a;
 }</string>
     </property>
     <property name="text">
-     <string>^ Alfabetica</string>
+     <string/>
     </property>
    </widget>
    <widget class="QLabel" name="Logo">
     <property name="geometry">
      <rect>
-      <x>320</x>
-      <y>30</y>
-      <width>311</width>
-      <height>41</height>
+      <x>380</x>
+      <y>10</y>
+      <width>201</width>
+      <height>51</height>
      </rect>
     </property>
     <property name="font">
      <font>
-      <family>Cantarell</family>
+      <family>Monospace</family>
       <pointsize>26</pointsize>
       <weight>50</weight>
       <italic>false</italic>
@@ -158,20 +168,58 @@ QPushButton#descAlfa:pressed{
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">border-bottom: 1px solid #d3d4aa;</string>
+     <string notr="true"/>
     </property>
     <property name="text">
-     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#444444;&quot;&gt;Indexador&lt;/span&gt;&lt;span style=&quot; color:#A8C54A;&quot;&gt;Maluco&lt;/span&gt;&lt;span style=&quot; color:#0092b2;&quot;&gt;24&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:36pt; color:#444444;&quot;&gt;N&lt;/span&gt;&lt;span style=&quot; font-size:36pt; color:#a8c54a;&quot;&gt;oo&lt;/span&gt;&lt;span style=&quot; font-size:36pt; color:#0092b2;&quot;&gt;dles&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
    </widget>
    <widget class="QLineEdit" name="searchBar">
     <property name="geometry">
      <rect>
       <x>270</x>
-      <y>80</y>
+      <y>70</y>
       <width>401</width>
       <height>41</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background: white;
+outline: none;
+border: 1px solid #e0e0e0;
+border-radius:3px;</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="ascAlfa">
+    <property name="geometry">
+     <rect>
+      <x>630</x>
+      <y>120</y>
+      <width>41</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton#ascAlfa{
+	outline: none;
+	background: #f3f3f3;
+	background-image: url(:/new/prefix1/res/alfabeticacresc.png);
+	background-repeat: no-repeat;
+	background-position: center;
+	border: 4px solid #c0c0c0;
+	border-radius: 10px;
+}
+QPushButton#ascAlfa:pressed{
+	outline: none;
+	background: #f0f0f0;
+	background-image: url(:/new/prefix1/res/alfabeticacresc.png);
+	background-repeat: no-repeat;
+	background-position: center;
+	border: 4px solid #0092b2;
+}</string>
+    </property>
+    <property name="text">
+     <string/>
     </property>
    </widget>
   </widget>

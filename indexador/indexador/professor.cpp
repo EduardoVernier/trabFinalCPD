@@ -10,7 +10,9 @@
 using namespace std;
 
 int parseProfessor(string path, dadosProfessor *temp){
+
     CMarkup xml;
+    string data;
     int nTrab = 0, nArt = 0;
 
     if(!xml.Load(path)){
@@ -29,7 +31,7 @@ int parseProfessor(string path, dadosProfessor *temp){
         cout << "Sem DADOS-GERAIS." << endl;
         return ERROR;
     }
-    temp->nome = xml.GetAttrib("NOME-COMPLETO");
+    temp->nome = (xml.GetAttrib("NOME-COMPLETO"));
     //cout << temp.nome << endl;
     xml.IntoElem(); // define DADOS-GERAIS como parent
 
@@ -130,13 +132,22 @@ int parseProfessor(string path, dadosProfessor *temp){
 
 int getChavesProfessor(string path, chavesProfessor *temp)
 {
+
     CMarkup xml;
+    string teste;
     int nTrab = 0, nArt = 0;
 
     if(!xml.Load(path)){
         cout << "Erro de abertura do arquivo xml." << endl;
         return 1;
     }
+    /*
+    xml.FindNode(xml.MNT_PROCESSING_INSTRUCTION); // encontra a declaracao do xml
+    //cout << xml.GetData() << endl;
+    //cout << xml.GetAttrib("encoding") << endl; // muda o encoding
+    //xml.SetAttrib( "encoding", "UTF-8" );
+    //xml.Save(path);
+    */
 
 
     strcpy (temp->nomeArquivo, path.c_str());
@@ -153,6 +164,7 @@ int getChavesProfessor(string path, chavesProfessor *temp)
         return ERROR;
     }
     strcpy (temp->nome, xml.GetAttrib("NOME-COMPLETO").c_str());
+    cout << teste << endl;
     //cout << temp.nome << endl;
     xml.IntoElem(); // define DADOS-GERAIS como parent
 

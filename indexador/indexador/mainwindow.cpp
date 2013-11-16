@@ -8,7 +8,9 @@
 #include <fstream>
 #include <algorithm>
 #include <string>
+#include <locale>
 #include "professor.h"
+
 
 #define ERROR -1
 #define SUCCESS 0
@@ -17,7 +19,10 @@ using namespace std;
 
 MainWindow::MainWindow(QWidget *parent) :  QMainWindow(parent),  ui(new Ui::MainWindow)
 {
+    setlocale(LC_ALL, "Portuguese");
+
     ui->setupUi(this);
+    ui->tableWidget->setColumnWidth(0,350);
 
 
     chavesProfessor *prof = new chavesProfessor;
@@ -26,7 +31,7 @@ MainWindow::MainWindow(QWidget *parent) :  QMainWindow(parent),  ui(new Ui::Main
     string nomeArquivo;
     int nProfs = 0;
     int letras [27];
-    vector <chavesProfessor> ordNome;
+    vector <chavesProfessor> vecProfessor;
 
 
     // Inicializa array de iniciais
@@ -41,7 +46,7 @@ MainWindow::MainWindow(QWidget *parent) :  QMainWindow(parent),  ui(new Ui::Main
             if (getChavesProfessor(nomeArquivo,prof)==0) // XML bem formado
             {
                 nProfs++;
-                ordNome.push_back(*prof);
+                vecProfessor.push_back(*prof);
 
                 if (int (prof->nome[0]) - 65 >= 0 ) // Preenche array com as iniciais de cada pessoa
                     letras[int (prof->nome[0]) - 65]++;
@@ -56,7 +61,7 @@ MainWindow::MainWindow(QWidget *parent) :  QMainWindow(parent),  ui(new Ui::Main
     /*   The GNU Standard C++ library uses a 3-part hybrid sorting algorithm: introsort is performed
      * first (introsort itself being a hybrid of quicksort and heap sort),to a maximum depth given
      * by 2×log2 n, where n is the number of elements, followed by an insertion sort on the result. */
-    sort (ordNome.begin(),ordNome.end(),comparaNome);
+    sort (vecProfessor.begin(), vecProfessor.end(), comparaNome);
     cout << "\n\n";
 
     // Imprime nome de todos os professores contabilizados
@@ -79,27 +84,35 @@ MainWindow::MainWindow(QWidget *parent) :  QMainWindow(parent),  ui(new Ui::Main
 
 
     // Escreve os nomes dos professores e nomes dos arquivos XML no arquivo de chaves
-    for (unsigned i = 0; i < ordNome.size(); i++)
+    for (unsigned i = 0; i < vecProfessor.size(); i++)
     {
-        arqChaves << (ordNome.at(i)).nome;
-        arqChaves << (ordNome.at(i)).nomeArquivo;
+        arqChaves << (vecProfessor.at(i)).nome;
+        arqChaves << (vecProfessor.at(i)).nomeArquivo;
     }
 
 
-    for (unsigned i = 0; i < ordNome.size(); i++)
+    for (unsigned i = 0; i < vecProfessor.size(); i++)
     {
         //string nome = (string) (ordNome.at(i)).nome;
 
         //ui->Logo->setText("hue");
     }
 
-    for (unsigned i = 0; i < ordNome.size(); i++)
+    for (unsigned i = 0; i < vecProfessor.size(); i++)
     {
         // Escreve no tableWidget
-        QString text = (ordNome.at(i)).nome;
-        QTableWidgetItem *item = new QTableWidgetItem(text);
+        QString nome = (vecProfessor.at(i)).nome;
+        int nPeriodicos = (vecProfessor.at(i)).nPPeriodicos;
+        int nEventos = (vecProfessor.at(i)).nPEventos;
+
+        QTableWidgetItem *nomeItem = new QTableWidgetItem(nome);
+        QTableWidgetItem *periodicosItem = new QTableWidgetItem(nPeriodicos);
+        QTableWidgetItem *eventosItem = new QTableWidgetItem(nEventos);
+
         ui->tableWidget->insertRow(i);
-        ui->tableWidget->setItem(i,0,item);
+        ui->tableWidget->setItem(i,0, nomeItem);
+        ui->tableWidget->setItem(i,1, periodicosItem);
+        ui->tableWidget->setItem(i,2, eventosItem);
     }
 
 
