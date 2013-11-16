@@ -14,6 +14,7 @@ class Details : public QDialog
 public:
     explicit Details(QWidget *parent = 0);
     void setLabelText(QString str);
+    void setInfoText(QString text);
     ~Details();
 
 private:

@@ -17,6 +17,10 @@ void Details::setLabelText(QString str){
 
 }
 
+void Details::setInfoText(QString text){
+    ui->infoBox->setText(text);
+}
+
 Details::~Details()
 {
     delete ui;

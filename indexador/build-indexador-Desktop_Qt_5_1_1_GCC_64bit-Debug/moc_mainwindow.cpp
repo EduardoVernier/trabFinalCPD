@@ -19,8 +19,8 @@
 
 QT_BEGIN_MOC_NAMESPACE
 struct qt_meta_stringdata_MainWindow_t {
-    QByteArrayData data[9];
-    char stringdata[133];
+    QByteArrayData data[7];
+    char stringdata[96];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -35,14 +35,11 @@ QT_MOC_LITERAL(2, 44, 0),
 QT_MOC_LITERAL(3, 45, 17),
 QT_MOC_LITERAL(4, 63, 4),
 QT_MOC_LITERAL(5, 68, 18),
-QT_MOC_LITERAL(6, 87, 7),
-QT_MOC_LITERAL(7, 95, 23),
-QT_MOC_LITERAL(8, 119, 12)
+QT_MOC_LITERAL(6, 87, 7)
     },
     "MainWindow\0on_tableWidget_itemDoubleClicked\0"
     "\0QTableWidgetItem*\0item\0on_ascAlfa_clicked\0"
-    "checked\0vector<chavesProfessor>\0"
-    "vecProfessor\0"
+    "checked\0"
 };
 #undef QT_MOC_LITERAL
 
@@ -61,11 +58,11 @@ static const uint qt_meta_data_MainWindow[] = {
 
  // slots: name, argc, parameters, tag, flags
        1,    1,   24,    2, 0x08,
-       5,    2,   27,    2, 0x08,
+       5,    1,   27,    2, 0x08,
 
  // slots: parameters
     QMetaType::Void, 0x80000000 | 3,    4,
-    QMetaType::Void, QMetaType::Bool, 0x80000000 | 7,    6,    8,
+    QMetaType::Void, QMetaType::Bool,    6,
 
        0        // eod
 };
@@ -76,7 +73,7 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         MainWindow *_t = static_cast<MainWindow *>(_o);
         switch (_id) {
         case 0: _t->on_tableWidget_itemDoubleClicked((*reinterpret_cast< QTableWidgetItem*(*)>(_a[1]))); break;
-        case 1: _t->on_ascAlfa_clicked((*reinterpret_cast< bool(*)>(_a[1])),(*reinterpret_cast< vector<chavesProfessor>(*)>(_a[2]))); break;
+        case 1: _t->on_ascAlfa_clicked((*reinterpret_cast< bool(*)>(_a[1]))); break;
         default: ;
         }
     }

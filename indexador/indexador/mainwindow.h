@@ -12,6 +12,8 @@ class MainWindow;
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
+    chavesProfessor *prof = new chavesProfessor;
+    vector <chavesProfessor> vecProfessor;
 
 public:
     explicit MainWindow(QWidget *parent = 0);

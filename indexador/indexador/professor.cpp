@@ -228,3 +228,14 @@ bool comparaNome(const chavesProfessor &a, const chavesProfessor &b)
     return string (a.nome) < string (b.nome);
 }
 
+string Informacoes(string path){
+    CMarkup xml;
+    string info;
+    dadosProfessor *prof = new dadosProfessor;
+
+    if(parseProfessor(path,prof) == SUCCESS)
+        info = prof->area;
+    else
+        info = "Area nao encontrada";
+    return info;
+}
