@@ -6,12 +6,24 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>956</width>
-    <height>556</height>
+    <width>940</width>
+    <height>550</height>
    </rect>
   </property>
+  <property name="minimumSize">
+   <size>
+    <width>940</width>
+    <height>550</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>940</width>
+    <height>550</height>
+   </size>
+  </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>Noodles</string>
   </property>
   <property name="styleSheet">
    <string notr="true">background: url(:/new/prefix1/res/bg.png);</string>
@@ -95,7 +107,7 @@
    <widget class="QPushButton" name="searchButton">
     <property name="geometry">
      <rect>
-      <x>670</x>
+      <x>630</x>
       <y>70</y>
       <width>91</width>
       <height>41</height>
@@ -106,6 +118,7 @@
 	outline: none;
     background: #555555;
 	color: #ffffff;
+	border: 1px solid #fdfdfd;
 	border-radius: 3px;
  }
  QPushButton#searchButton:pressed {
@@ -114,13 +127,13 @@
  }</string>
     </property>
     <property name="text">
-     <string>VOILA!</string>
+     <string>NI</string>
     </property>
    </widget>
    <widget class="QPushButton" name="descAlfa">
     <property name="geometry">
      <rect>
-      <x>580</x>
+      <x>830</x>
       <y>120</y>
       <width>41</width>
       <height>41</height>
@@ -152,7 +165,7 @@ QPushButton#descAlfa:pressed{
    <widget class="QLabel" name="Logo">
     <property name="geometry">
      <rect>
-      <x>380</x>
+      <x>350</x>
       <y>10</y>
       <width>201</width>
       <height>51</height>
@@ -177,7 +190,7 @@ QPushButton#descAlfa:pressed{
    <widget class="QLineEdit" name="searchBar">
     <property name="geometry">
      <rect>
-      <x>270</x>
+      <x>230</x>
       <y>70</y>
       <width>401</width>
       <height>41</height>
@@ -193,7 +206,7 @@ border-radius:3px;</string>
    <widget class="QPushButton" name="ascAlfa">
     <property name="geometry">
      <rect>
-      <x>630</x>
+      <x>880</x>
       <y>120</y>
       <width>41</width>
       <height>41</height>

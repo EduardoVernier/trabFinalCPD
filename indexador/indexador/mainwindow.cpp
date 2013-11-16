@@ -10,6 +10,7 @@
 #include <string>
 #include <locale>
 #include "professor.h"
+#include "details.h"
 
 
 #define ERROR -1
@@ -123,4 +124,13 @@ MainWindow::MainWindow(QWidget *parent) :  QMainWindow(parent),  ui(new Ui::Main
 MainWindow::~MainWindow()
 {
     delete ui;
+}
+
+void MainWindow::on_tableWidget_itemDoubleClicked(QTableWidgetItem *item)
+{
+
+    QString professorName = item->text();
+    Details *detWindow = new Details;
+    detWindow->setLabelText(professorName);
+    detWindow->show();
 }

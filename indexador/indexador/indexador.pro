@@ -15,13 +15,16 @@ TEMPLATE = app
 SOURCES += main.cpp\
         mainwindow.cpp \
     professor.cpp \
-    Markup.cpp
+    Markup.cpp \
+    details.cpp
 
 HEADERS  += mainwindow.h \
     professor.h \
-    Markup.h
+    Markup.h \
+    details.h
 
-FORMS    += mainwindow.ui
+FORMS    += mainwindow.ui \
+    details.ui
 
 RESOURCES += \
     Resources.qrc
