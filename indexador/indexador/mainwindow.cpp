@@ -143,3 +143,33 @@ void MainWindow::on_tableWidget_itemDoubleClicked(QTableWidgetItem *item)
     detWindow->setLabelText(professorName);
     detWindow->show();
 }
+
+void MainWindow::on_ascAlfa_clicked(bool checked)
+{
+
+    for (unsigned i = vecProfessor.size(); i > 0 ; i--)
+    {
+        // Escreve no tableWidget
+        QString nome = (vecProfessor.at(i)).nome;
+        int nPP = (vecProfessor.at(i)).nPPeriodicos;
+        int nPE = (vecProfessor.at(i)).nPEventos;
+
+        QString TotalPub =  QString::fromStdString(to_string(nPP + nPE));
+
+        QString nPeriodicos = QString::fromStdString(to_string( (vecProfessor.at(i)).nPPeriodicos ));
+        QString nEventos = QString::fromStdString(to_string( (vecProfessor.at(i)).nPEventos));
+
+
+
+        QTableWidgetItem *nomeItem = new QTableWidgetItem(nome);
+        QTableWidgetItem *periodicosItem = new QTableWidgetItem(nPeriodicos);
+        QTableWidgetItem *eventosItem = new QTableWidgetItem(nEventos);
+        QTableWidgetItem *TotPubItem = new QTableWidgetItem(TotalPub);
+
+        ui->tableWidget->insertRow(i);
+        ui->tableWidget->setItem(i,0, nomeItem);
+        ui->tableWidget->setItem(i,1, periodicosItem);
+        ui->tableWidget->setItem(i,2, eventosItem);
+        ui->tableWidget->setItem(i,3, TotPubItem);
+    }
+}

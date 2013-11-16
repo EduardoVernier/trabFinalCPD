@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include <QTableWidget>
+#include "professor.h"
 
 namespace Ui {
 class MainWindow;
@@ -18,6 +19,8 @@ public:
 
 private slots:
     void on_tableWidget_itemDoubleClicked(QTableWidgetItem *item);
+
+    void on_ascAlfa_clicked(bool checked);
 
 private:
     Ui::MainWindow *ui;
