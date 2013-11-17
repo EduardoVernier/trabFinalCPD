@@ -9,6 +9,7 @@
 #ifndef UI_MAINWINDOW_H
 #define UI_MAINWINDOW_H
 
+#include <QtCore/QLocale>
 #include <QtCore/QVariant>
 #include <QtWidgets/QAction>
 #include <QtWidgets/QApplication>
@@ -58,16 +59,18 @@ public:
         tableWidget->setObjectName(QStringLiteral("tableWidget"));
         tableWidget->setGeometry(QRect(10, 170, 921, 371));
         tableWidget->setStyleSheet(QStringLiteral("background: #f0f0f0;"));
+        tableWidget->setLocale(QLocale(QLocale::Portuguese, QLocale::Brazil));
         tableWidget->setEditTriggers(QAbstractItemView::NoEditTriggers);
         tableWidget->setSelectionMode(QAbstractItemView::SingleSelection);
         tableWidget->setSelectionBehavior(QAbstractItemView::SelectRows);
+        tableWidget->setSortingEnabled(true);
         tableWidget->setCornerButtonEnabled(false);
         tableWidget->horizontalHeader()->setVisible(true);
         tableWidget->horizontalHeader()->setCascadingSectionResizes(true);
         tableWidget->horizontalHeader()->setDefaultSectionSize(180);
         tableWidget->horizontalHeader()->setHighlightSections(true);
         tableWidget->horizontalHeader()->setMinimumSectionSize(20);
-        tableWidget->horizontalHeader()->setProperty("showSortIndicator", QVariant(false));
+        tableWidget->horizontalHeader()->setProperty("showSortIndicator", QVariant(true));
         tableWidget->horizontalHeader()->setStretchLastSection(true);
         tableWidget->verticalHeader()->setVisible(false);
         tableWidget->verticalHeader()->setCascadingSectionResizes(false);
@@ -79,7 +82,7 @@ public:
 "	outline: none;\n"
 "    background: #555555;\n"
 "	color: #ffffff;\n"
-"	border: 1px solid #fdfdfd;\n"
+"	border: 2px solid #dfdfdf;\n"
 "	border-radius: 3px;\n"
 " }\n"
 " QPushButton#searchButton:pressed {\n"

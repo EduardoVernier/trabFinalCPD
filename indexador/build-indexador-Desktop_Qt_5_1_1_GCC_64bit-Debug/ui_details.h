@@ -31,18 +31,20 @@ public:
         if (Details->objectName().isEmpty())
             Details->setObjectName(QStringLiteral("Details"));
         Details->setEnabled(true);
-        Details->resize(480, 650);
-        Details->setMinimumSize(QSize(480, 650));
-        Details->setMaximumSize(QSize(520, 650));
+        Details->resize(480, 250);
+        Details->setMinimumSize(QSize(480, 250));
+        Details->setMaximumSize(QSize(480, 250));
         Details->setStyleSheet(QStringLiteral("background: url(:/new/prefix1/res/bg.png);"));
         label = new QLabel(Details);
         label->setObjectName(QStringLiteral("label"));
-        label->setGeometry(QRect(10, 10, 461, 51));
+        label->setGeometry(QRect(10, 10, 480, 30));
+        label->setMinimumSize(QSize(480, 30));
+        label->setMaximumSize(QSize(0, 0));
         label->setStyleSheet(QStringLiteral("background: transparent;"));
         infoBox = new QTextEdit(Details);
         infoBox->setObjectName(QStringLiteral("infoBox"));
-        infoBox->setGeometry(QRect(10, 70, 450, 560));
-        infoBox->setMinimumSize(QSize(450, 560));
+        infoBox->setGeometry(QRect(10, 50, 450, 150));
+        infoBox->setMinimumSize(QSize(450, 150));
         infoBox->setMaximumSize(QSize(0, 0));
         infoBox->viewport()->setProperty("cursor", QVariant(QCursor(Qt::ArrowCursor)));
         infoBox->setStyleSheet(QLatin1String("background: transparent;\n"

@@ -3,6 +3,7 @@
 #include <Markup.h>
 #include <string>
 #include <vector>
+#include <wchar.h>
 #include "professor.h"
 
 #define ERROR -1
@@ -132,22 +133,20 @@ int parseProfessor(string path, dadosProfessor *temp){
 
 int getChavesProfessor(string path, chavesProfessor *temp)
 {
-
     CMarkup xml;
-    string teste;
     int nTrab = 0, nArt = 0;
 
     if(!xml.Load(path)){
         cout << "Erro de abertura do arquivo xml." << endl;
         return 1;
     }
-    /*
-    xml.FindNode(xml.MNT_PROCESSING_INSTRUCTION); // encontra a declaracao do xml
+    //
+    //xml.FindNode(xml.MNT_PROCESSING_INSTRUCTION); // encontra a declaracao do xml
     //cout << xml.GetData() << endl;
     //cout << xml.GetAttrib("encoding") << endl; // muda o encoding
     //xml.SetAttrib( "encoding", "UTF-8" );
     //xml.Save(path);
-    */
+
 
 
     strcpy (temp->nomeArquivo, path.c_str());
@@ -164,7 +163,6 @@ int getChavesProfessor(string path, chavesProfessor *temp)
         return ERROR;
     }
     strcpy (temp->nome, xml.GetAttrib("NOME-COMPLETO").c_str());
-    cout << teste << endl;
     //cout << temp.nome << endl;
     xml.IntoElem(); // define DADOS-GERAIS como parent
 
@@ -239,3 +237,5 @@ string Informacoes(string path){
         info = "Area nao encontrada";
     return info;
 }
+
+

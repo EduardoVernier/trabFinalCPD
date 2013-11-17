@@ -20,7 +20,7 @@ using namespace std;
 
 MainWindow::MainWindow(QWidget *parent) :  QMainWindow(parent),  ui(new Ui::MainWindow)
 {
-    setlocale(LC_ALL, "Portuguese");
+    setlocale(LC_ALL, "");
 
     ui->setupUi(this);
     ui->tableWidget->setColumnWidth(0,350);

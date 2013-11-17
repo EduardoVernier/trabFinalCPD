@@ -41,6 +41,9 @@
     <property name="styleSheet">
      <string notr="true">background: #f0f0f0;</string>
     </property>
+    <property name="locale">
+     <locale language="Portuguese" country="Brazil"/>
+    </property>
     <property name="editTriggers">
      <set>QAbstractItemView::NoEditTriggers</set>
     </property>
@@ -49,6 +52,9 @@
     </property>
     <property name="selectionBehavior">
      <enum>QAbstractItemView::SelectRows</enum>
+    </property>
+    <property name="sortingEnabled">
+     <bool>true</bool>
     </property>
     <property name="cornerButtonEnabled">
      <bool>false</bool>
@@ -69,7 +75,7 @@
      <number>20</number>
     </attribute>
     <attribute name="horizontalHeaderShowSortIndicator" stdset="0">
-     <bool>false</bool>
+     <bool>true</bool>
     </attribute>
     <attribute name="horizontalHeaderStretchLastSection">
      <bool>true</bool>
@@ -118,7 +124,7 @@
 	outline: none;
     background: #555555;
 	color: #ffffff;
-	border: 1px solid #fdfdfd;
+	border: 2px solid #dfdfdf;
 	border-radius: 3px;
  }
  QPushButton#searchButton:pressed {
