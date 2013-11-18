@@ -137,6 +137,9 @@
     </property>
    </widget>
    <widget class="QPushButton" name="descAlfa">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
     <property name="geometry">
      <rect>
       <x>830</x>
@@ -210,6 +213,9 @@ border-radius:3px;</string>
     </property>
    </widget>
    <widget class="QPushButton" name="ascAlfa">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
     <property name="geometry">
      <rect>
       <x>880</x>
