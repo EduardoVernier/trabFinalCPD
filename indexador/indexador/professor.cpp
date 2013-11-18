@@ -226,6 +226,22 @@ bool comparaNome(const chavesProfessor &a, const chavesProfessor &b)
     return string (a.nome) < string (b.nome);
 }
 
+bool comparaNP(const chavesProfessor &a, const chavesProfessor &b)
+{
+    return a.nPPeriodicos < b.nPPeriodicos;
+}
+
+bool comparaNE(const chavesProfessor &a, const chavesProfessor &b)
+{
+    return a.nPEventos < b.nPEventos;
+}
+
+bool comparaNT(const chavesProfessor &a, const chavesProfessor &b)
+{
+    return (a.nPPeriodicos + a.nPEventos) < (b.nPPeriodicos + b.nPEventos);
+}
+
+
 string Informacoes(string path){
     CMarkup xml;
     string info;

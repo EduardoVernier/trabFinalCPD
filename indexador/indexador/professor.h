@@ -44,6 +44,12 @@ int parseProfessor(string path, dadosProfessor *temp);
 int getChavesProfessor(string path, chavesProfessor *temp);
 bool comparaNome(const chavesProfessor &a, const chavesProfessor &b);
 string Informacoes(string path);
+void escreveNaTable ();
+bool comparaNP(const chavesProfessor &a, const chavesProfessor &b);
+bool comparaNE(const chavesProfessor &a, const chavesProfessor &b);
+bool comparaNT(const chavesProfessor &a, const chavesProfessor &b);
+
+
 
 
 #endif // PROFESSOR_H
