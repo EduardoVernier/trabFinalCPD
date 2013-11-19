@@ -101,6 +101,7 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
+// Cria a janela de detalhes e a preenche
 void MainWindow::on_tableWidget_itemDoubleClicked(QTableWidgetItem *item)
 {
     string path;
@@ -113,15 +114,13 @@ void MainWindow::on_tableWidget_itemDoubleClicked(QTableWidgetItem *item)
     detWindow->setInfoText(informacoes);
 }
 
-
+// Povoa o tableWidget
 void MainWindow::escreveNaTable ()
 {
-    // Escreve no tableWidget
     for (unsigned i = 0; i < vecProfessor.size(); i++)
     {
 
         QString nome = (vecProfessor.at(i)).nome;
-        //nome.replace("Ã","a");
 
         int nPP = (vecProfessor.at(i)).nPPeriodicos;
         int nPE = (vecProfessor.at(i)).nPEventos;
@@ -130,7 +129,6 @@ void MainWindow::escreveNaTable ()
 
         QString nPeriodicos = QString::fromStdString(to_string( (vecProfessor.at(i)).nPPeriodicos ));
         QString nEventos = QString::fromStdString(to_string( (vecProfessor.at(i)).nPEventos));
-
 
         QTableWidgetItem *nomeItem = new QTableWidgetItem(nome);
         QTableWidgetItem *periodicosItem = new QTableWidgetItem(nPeriodicos);
@@ -145,16 +143,17 @@ void MainWindow::escreveNaTable ()
     }
 }
 
+// Escreve no tableWidget
 void MainWindow::escreveNaTableInverso ()
 {
+    // Faxina
     for (unsigned i = 0; i < vecProfessor.size(); i++)
         ui->tableWidget->insertRow(i);
-    // Escreve no tableWidget
+
     for (unsigned i = 0; i < vecProfessor.size(); i++)
     {
 
         QString nome = (vecProfessor.at(i)).nome;
-        //nome.replace("Ã","a");
 
         int nPP = (vecProfessor.at(i)).nPPeriodicos;
         int nPE = (vecProfessor.at(i)).nPEventos;
@@ -180,12 +179,14 @@ void MainWindow::escreveNaTableInverso ()
 
 void MainWindow::on_alfaButton_clicked()
 {
+    // Testa qual foi a última chave de ordenamento e apenas reordena caso necessário
     if (lastOrd != 'A')
     {
         sort (vecProfessor.begin(), vecProfessor.end(), comparaNome);
         lastOrd = 'A';
     }
 
+    // Faxina
     for (unsigned i = 0; i < vecProfessor.size(); i++)
         ui->tableWidget->removeRow(0);
 
@@ -277,8 +278,7 @@ void MainWindow::on_totalButton_clicked()
 
 }
 
-
-//Auto-fill
+// Sugere professores a partir da substring dada pelo usuário
 void MainWindow::on_searchBar_textChanged(const QString &arg1)
 {
     ui->tableWidget->clearContents();

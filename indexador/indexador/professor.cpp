@@ -38,31 +38,35 @@ int parseProfessor(string path, dadosProfessor *temp){
 
     if(!xml.FindElem("ATUACOES-PROFISSIONAIS")){
         cout << "Sem ATUACOES-PROFISSIONAIS" <<endl;
-        return ERROR;
+        //return ERROR;
     }
     if(!xml.FindChildElem("ATUACAO-PROFISSIONAL")){
         cout << "Sem ATUACAO-PROFISSIONAL" << endl;
-        return ERROR;
+        //return ERROR;
     }
     temp->instituicao = xml.GetChildAttrib("NOME-INSTITUICAO");
     //cout << temp.instituicao << endl;
     xml.IntoElem(); // define ATUACAO-PROFISSIONAL como parent
 
     if(!xml.FindChildElem("ATIVIDADES-DE-PESQUISA-E-DESENVOLVIMENTO")){
-        cout << "Sem linha de pesquisa" << endl;
-        return ERROR;
+        temp->area = "Sem linha de pesquisa especificada";
+        //return ERROR;
     }
     xml.IntoElem(); //define APD como parent
 
     if(!xml.FindChildElem("PESQUISA-E-DESENVOLVIMENTO")){
         cout << "Sem linha de pesquisa" << endl;
-        return ERROR;
+        temp->area = "Sem linha de pesquisa especificada";
+
+        //return ERROR;
     }
     xml.IntoElem(); // define PD como parent
 
     if(!xml.FindChildElem("LINHA-DE-PESQUISA")){
         cout << "Sem linha de pesquisa" << endl;
-        return ERROR;
+        temp->area = "Sem linha de pesquisa especificada";
+
+        //return ERROR;
     }
     temp->area = xml.GetChildAttrib("TITULO-DA-LINHA-DE-PESQUISA");
     //cout << temp.area << endl;
@@ -77,13 +81,13 @@ int parseProfessor(string path, dadosProfessor *temp){
 
     if(!xml.FindElem("PRODUCAO-BIBLIOGRAFICA")){
         cout << "Sem PRODUCAO-BIBLIOGRAFICA." << endl;
-        return ERROR;
+        //return ERROR;
     }
     xml.IntoElem();
 
     if(!xml.FindElem("TRABALHOS-EM-EVENTOS")){
         cout << "Sem TRABALHOS-EM-EVENTOS." << endl;
-        return ERROR;
+        //return ERROR;
     }
     xml.IntoElem();// define TRABALHOS-EM-EVENTOS como parent
 
@@ -106,13 +110,13 @@ int parseProfessor(string path, dadosProfessor *temp){
 
     if(!xml.FindElem("PRODUCAO-BIBLIOGRAFICA")){
         cout << "Sem PRODUCAO-BIBLIOGRAFICA." << endl;
-        return ERROR;
+        //return ERROR;
     }
     xml.IntoElem();
 
     if(!xml.FindElem("ARTIGOS-PUBLICADOS")){
         cout << "Sem ARTIGOS-PUBLICADOS." << endl;
-        return ERROR;
+        //return ERROR;
     }
     xml.IntoElem();// define ARTIGOS-PUBLICADOS como parent
 
