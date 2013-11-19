@@ -4,6 +4,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <QString>
 
 using namespace std;
 
@@ -26,6 +27,7 @@ typedef struct
     int nPubPeriodicos;
     string instituicao;
     string area;
+    QString colaborouCom;
     vector <Trabalho> pubEventos;
     vector <Artigo> pubPeriodicos;
 } dadosProfessor;

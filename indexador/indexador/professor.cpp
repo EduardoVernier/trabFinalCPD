@@ -90,6 +90,7 @@ int parseProfessor(string path, dadosProfessor *temp){
         //return ERROR;
     }
     xml.IntoElem();// define TRABALHOS-EM-EVENTOS como parent
+    QString s;
 
     while(xml.FindElem()){
         Trabalho trab;
@@ -97,8 +98,19 @@ int parseProfessor(string path, dadosProfessor *temp){
         trab.titulo = xml.GetChildAttrib("TITULO-DO-TRABALHO");
         trab.ano = xml.GetChildAttrib("ANO-DO-TRABALHO");
         temp->pubEventos.push_back(trab);
+
+        while(xml.FindChildElem("AUTORES"))
+        {
+            s = xml.GetChildAttrib("NOME-COMPLETO-DO-AUTOR").c_str();
+
+            if (!temp->colaborouCom.contains(s) && (!s.contains(',') && !s.contains('.')) )
+            {
+                temp->colaborouCom += s + '\n';
+            }
+        }
         nTrab++;
     }
+
     temp->nPubEventos = nTrab;
     xml.ResetPos();
 
@@ -126,6 +138,15 @@ int parseProfessor(string path, dadosProfessor *temp){
         artigo.titulo = xml.GetChildAttrib("TITULO-DO-ARTIGO");
         artigo.ano = xml.GetChildAttrib("ANO-DO-ARTIGO");
         temp->pubPeriodicos.push_back(artigo);
+        while(xml.FindChildElem("AUTORES"))
+        {
+            s = xml.GetChildAttrib("NOME-COMPLETO-DO-AUTOR").c_str();
+
+            if (!temp->colaborouCom.contains(s) && (!s.contains(',') && !s.contains('.')) )
+            {
+                temp->colaborouCom += s + '\n';
+            }
+        }
         nArt++;
     }
     temp->nPubPeriodicos = nArt;
@@ -260,6 +281,8 @@ string Informacoes(string path){
         for (unsigned i = 0; i < prof->nPubPeriodicos-1; i++)
             info.append("  "  + prof->pubPeriodicos.at(i).titulo + "\n");
 
+        info = info + "\n\COLABOROU COM:\n";
+        info = info + prof->colaborouCom.toStdString();
 
     }
     return info;
