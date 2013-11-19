@@ -30,10 +30,12 @@ public:
     QWidget *centralWidget;
     QTableWidget *tableWidget;
     QPushButton *searchButton;
-    QPushButton *descAlfa;
+    QPushButton *alfaButton;
     QLabel *Logo;
     QLineEdit *searchBar;
-    QPushButton *ascAlfa;
+    QPushButton *perButton;
+    QPushButton *eventsButton;
+    QPushButton *totalButton;
 
     void setupUi(QMainWindow *MainWindow)
     {
@@ -63,14 +65,14 @@ public:
         tableWidget->setEditTriggers(QAbstractItemView::NoEditTriggers);
         tableWidget->setSelectionMode(QAbstractItemView::SingleSelection);
         tableWidget->setSelectionBehavior(QAbstractItemView::SelectRows);
-        tableWidget->setSortingEnabled(true);
+        tableWidget->setSortingEnabled(false);
         tableWidget->setCornerButtonEnabled(false);
         tableWidget->horizontalHeader()->setVisible(true);
         tableWidget->horizontalHeader()->setCascadingSectionResizes(true);
         tableWidget->horizontalHeader()->setDefaultSectionSize(180);
         tableWidget->horizontalHeader()->setHighlightSections(true);
         tableWidget->horizontalHeader()->setMinimumSectionSize(20);
-        tableWidget->horizontalHeader()->setProperty("showSortIndicator", QVariant(true));
+        tableWidget->horizontalHeader()->setProperty("showSortIndicator", QVariant(false));
         tableWidget->horizontalHeader()->setStretchLastSection(true);
         tableWidget->verticalHeader()->setVisible(false);
         tableWidget->verticalHeader()->setCascadingSectionResizes(false);
@@ -89,10 +91,11 @@ public:
 "	outline: none;\n"
 "    background: #404040;\n"
 " }"));
-        descAlfa = new QPushButton(centralWidget);
-        descAlfa->setObjectName(QStringLiteral("descAlfa"));
-        descAlfa->setGeometry(QRect(830, 120, 41, 41));
-        descAlfa->setStyleSheet(QLatin1String("QPushButton#descAlfa{\n"
+        alfaButton = new QPushButton(centralWidget);
+        alfaButton->setObjectName(QStringLiteral("alfaButton"));
+        alfaButton->setEnabled(true);
+        alfaButton->setGeometry(QRect(170, 120, 41, 41));
+        alfaButton->setStyleSheet(QLatin1String("QPushButton#alfaButton{\n"
 "	outline: none;\n"
 "	background: #f3f3f3;\n"
 "	background-image: url(:/new/prefix1/res/alfabeticadecresc.png);\n"
@@ -101,7 +104,7 @@ public:
 "	border: 4px solid #c0c0c0;\n"
 "	border-radius: 10px;\n"
 "}\n"
-"QPushButton#descAlfa:pressed{\n"
+"QPushButton#alfaButton:pressed{\n"
 "	outline: none;\n"
 "	background: #f0f0f0;\n"
 "	background-image: url(:/new/prefix1/res/alfabeticadecresc.png);\n"
@@ -127,25 +130,56 @@ public:
 "outline: none;\n"
 "border: 1px solid #e0e0e0;\n"
 "border-radius:3px;"));
-        ascAlfa = new QPushButton(centralWidget);
-        ascAlfa->setObjectName(QStringLiteral("ascAlfa"));
-        ascAlfa->setGeometry(QRect(880, 120, 41, 41));
-        ascAlfa->setStyleSheet(QLatin1String("QPushButton#ascAlfa{\n"
+        perButton = new QPushButton(centralWidget);
+        perButton->setObjectName(QStringLiteral("perButton"));
+        perButton->setEnabled(true);
+        perButton->setGeometry(QRect(430, 120, 41, 41));
+        perButton->setStyleSheet(QLatin1String("QPushButton#perButton{\n"
 "	outline: none;\n"
 "	background: #f3f3f3;\n"
-"	background-image: url(:/new/prefix1/res/alfabeticacresc.png);\n"
-"	background-repeat: no-repeat;\n"
 "	background-position: center;\n"
 "	border: 4px solid #c0c0c0;\n"
 "	border-radius: 10px;\n"
 "}\n"
-"QPushButton#ascAlfa:pressed{\n"
+"QPushButton#perButton:pressed{\n"
 "	outline: none;\n"
 "	background: #f0f0f0;\n"
-"	background-image: url(:/new/prefix1/res/alfabeticacresc.png);\n"
-"	background-repeat: no-repeat;\n"
 "	background-position: center;\n"
-"	border: 4px solid #0092b2;\n"
+"	border: 4px solid #cc0000;\n"
+"}"));
+        eventsButton = new QPushButton(centralWidget);
+        eventsButton->setObjectName(QStringLiteral("eventsButton"));
+        eventsButton->setEnabled(true);
+        eventsButton->setGeometry(QRect(600, 120, 41, 41));
+        eventsButton->setStyleSheet(QLatin1String("QPushButton#eventsButton{\n"
+"	outline: none;\n"
+"	background: #f3f3f3;\n"
+"	background-position: center;\n"
+"	border: 4px solid #c0c0c0;\n"
+"	border-radius: 10px;\n"
+"}\n"
+"QPushButton#eventsButton:pressed{\n"
+"	outline: none;\n"
+"	background: #f0f0f0;\n"
+"	background-position: center;\n"
+"	border: 4px solid #dddd00;\n"
+"}"));
+        totalButton = new QPushButton(centralWidget);
+        totalButton->setObjectName(QStringLiteral("totalButton"));
+        totalButton->setEnabled(true);
+        totalButton->setGeometry(QRect(790, 120, 41, 41));
+        totalButton->setStyleSheet(QLatin1String("QPushButton#totalButton{\n"
+"	outline: none;\n"
+"	background: #f3f3f3;\n"
+"	background-position: center;\n"
+"	border: 4px solid #c0c0c0;\n"
+"	border-radius: 10px;\n"
+"}\n"
+"QPushButton#totalButton:pressed{\n"
+"	outline: none;\n"
+"	background: #f0f0f0;\n"
+"	background-position: center;\n"
+"	border: 4px solid #00dddd;\n"
 "}"));
         MainWindow->setCentralWidget(centralWidget);
 
@@ -160,15 +194,17 @@ public:
         QTableWidgetItem *___qtablewidgetitem = tableWidget->horizontalHeaderItem(0);
         ___qtablewidgetitem->setText(QApplication::translate("MainWindow", "Nome", 0));
         QTableWidgetItem *___qtablewidgetitem1 = tableWidget->horizontalHeaderItem(1);
-        ___qtablewidgetitem1->setText(QApplication::translate("MainWindow", "Artigos em publica\303\247\303\265es", 0));
+        ___qtablewidgetitem1->setText(QApplication::translate("MainWindow", "Artigos em Peri\303\263dicos", 0));
         QTableWidgetItem *___qtablewidgetitem2 = tableWidget->horizontalHeaderItem(2);
         ___qtablewidgetitem2->setText(QApplication::translate("MainWindow", "Artigos em Eventos", 0));
         QTableWidgetItem *___qtablewidgetitem3 = tableWidget->horizontalHeaderItem(3);
         ___qtablewidgetitem3->setText(QApplication::translate("MainWindow", "Numero de Artigos ao todo", 0));
         searchButton->setText(QApplication::translate("MainWindow", "NI", 0));
-        descAlfa->setText(QString());
+        alfaButton->setText(QString());
         Logo->setText(QApplication::translate("MainWindow", "<html><head/><body><p><span style=\" font-size:36pt; color:#444444;\">N</span><span style=\" font-size:36pt; color:#a8c54a;\">oo</span><span style=\" font-size:36pt; color:#0092b2;\">dles</span></p></body></html>", 0));
-        ascAlfa->setText(QString());
+        perButton->setText(QApplication::translate("MainWindow", "AP", 0));
+        eventsButton->setText(QApplication::translate("MainWindow", "AE", 0));
+        totalButton->setText(QApplication::translate("MainWindow", "Total", 0));
     } // retranslateUi
 
 };

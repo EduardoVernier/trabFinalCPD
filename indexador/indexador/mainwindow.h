@@ -22,10 +22,22 @@ public:
 private slots:
     void on_tableWidget_itemDoubleClicked(QTableWidgetItem *item);
 
-    void on_ascAlfa_clicked(bool checked);
+    //void on_ascAlfa_clicked(bool checked);
+
+    void on_alfaButton_clicked();
+
+    void on_perButton_clicked();
+
+    void on_eventsButton_clicked();
+
+    void on_totalButton_clicked();
+
+    void on_searchBar_textChanged(const QString &arg1);
 
 private:
     Ui::MainWindow *ui;
+    void escreveNaTable();
+    void escreveNaTableInverso();
 };
 
 #endif // MAINWINDOW_H
