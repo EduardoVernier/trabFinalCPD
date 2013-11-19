@@ -147,10 +147,10 @@ void MainWindow::escreveNaTable ()
 
 void MainWindow::escreveNaTableInverso ()
 {
-    for (int i = 0; i < vecProfessor.size(); i++)
+    for (unsigned i = 0; i < vecProfessor.size(); i++)
         ui->tableWidget->insertRow(i);
     // Escreve no tableWidget
-    for (int i = 0; i < vecProfessor.size(); i++)
+    for (unsigned i = 0; i < vecProfessor.size(); i++)
     {
 
         QString nome = (vecProfessor.at(i)).nome;
@@ -186,7 +186,7 @@ void MainWindow::on_alfaButton_clicked()
         lastOrd = 'A';
     }
 
-    for (int i = 0; i < vecProfessor.size(); i++)
+    for (unsigned i = 0; i < vecProfessor.size(); i++)
         ui->tableWidget->removeRow(0);
 
 
@@ -212,7 +212,7 @@ void MainWindow::on_perButton_clicked()
         lastOrd = 'P';
     }
 
-    for (int i = 0; i < vecProfessor.size(); i++)
+    for (unsigned i = 0; i < vecProfessor.size(); i++)
         ui->tableWidget->removeRow(0);
 
 
@@ -236,7 +236,7 @@ void MainWindow::on_eventsButton_clicked()
         lastOrd = 'E';
     }
 
-    for (int i = 0; i < vecProfessor.size(); i++)
+    for (unsigned i = 0; i < vecProfessor.size(); i++)
         ui->tableWidget->removeRow(0);
 
 
@@ -260,7 +260,7 @@ void MainWindow::on_totalButton_clicked()
         lastOrd = 'T';
     }
 
-    for (int i = 0; i < vecProfessor.size(); i++)
+    for (unsigned i = 0; i < vecProfessor.size(); i++)
         ui->tableWidget->removeRow(0);
 
 
@@ -275,5 +275,45 @@ void MainWindow::on_totalButton_clicked()
         flagAlfa = 0;
     }
 
+}
 
+
+//Auto-fill
+void MainWindow::on_searchBar_textChanged(const QString &arg1)
+{
+    ui->tableWidget->clearContents();
+
+
+    for (unsigned i = 0, j = 0; i < vecProfessor.size(); i++)
+    {
+        QString s = ((vecProfessor.at(i)).nome);
+
+        if (s.contains(arg1))
+        {
+
+            QString nome = (vecProfessor.at(i)).nome;
+            //nome.replace("Ã","a");
+
+            int nPP = (vecProfessor.at(i)).nPPeriodicos;
+            int nPE = (vecProfessor.at(i)).nPEventos;
+
+            QString TotalPub =  QString::fromStdString(to_string(nPP + nPE));
+
+            QString nPeriodicos = QString::fromStdString(to_string( (vecProfessor.at(i)).nPPeriodicos ));
+            QString nEventos = QString::fromStdString(to_string( (vecProfessor.at(i)).nPEventos));
+
+
+            QTableWidgetItem *nomeItem = new QTableWidgetItem(nome);
+            QTableWidgetItem *periodicosItem = new QTableWidgetItem(nPeriodicos);
+            QTableWidgetItem *eventosItem = new QTableWidgetItem(nEventos);
+            QTableWidgetItem *TotPubItem = new QTableWidgetItem(TotalPub);
+
+            ui->tableWidget->insertRow(j);
+            ui->tableWidget->setItem(j,0, nomeItem);
+            ui->tableWidget->setItem(j,1, periodicosItem);
+            ui->tableWidget->setItem(j,2, eventosItem);
+            ui->tableWidget->setItem(j,3, TotPubItem);
+            j++;
+        }
+    }
 }

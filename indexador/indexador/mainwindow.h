@@ -32,6 +32,8 @@ private slots:
 
     void on_totalButton_clicked();
 
+    void on_searchBar_textChanged(const QString &arg1);
+
 private:
     Ui::MainWindow *ui;
     void escreveNaTable();
