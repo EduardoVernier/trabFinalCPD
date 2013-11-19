@@ -313,6 +313,7 @@ void MainWindow::on_searchBar_textChanged(const QString &arg1)
             ui->tableWidget->setItem(j,2, eventosItem);
             ui->tableWidget->setItem(j,3, TotPubItem);
             j++;
+            ui->tableWidget->setRowCount(j);
         }
     }
 }

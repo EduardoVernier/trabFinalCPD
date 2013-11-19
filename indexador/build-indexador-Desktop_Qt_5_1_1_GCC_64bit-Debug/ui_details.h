@@ -49,7 +49,7 @@ public:
         infoBox->setStyleSheet(QLatin1String("background: transparent;\n"
 "outline: none;\n"
 "border: 0px solid black;"));
-        infoBox->setAutoFormatting(QTextEdit::AutoBulletList);
+        infoBox->setAutoFormatting(QTextEdit::AutoNone);
         infoBox->setTextInteractionFlags(Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse);
 
         retranslateUi(Details);
