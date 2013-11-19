@@ -283,7 +283,6 @@ void MainWindow::on_searchBar_textChanged(const QString &arg1)
 {
     ui->tableWidget->clearContents();
 
-
     for (unsigned i = 0, j = 0; i < vecProfessor.size(); i++)
     {
         QString s = ((vecProfessor.at(i)).nome);
@@ -292,7 +291,7 @@ void MainWindow::on_searchBar_textChanged(const QString &arg1)
         {
 
             QString nome = (vecProfessor.at(i)).nome;
-            //nome.replace("Ã","a");
+
 
             int nPP = (vecProfessor.at(i)).nPPeriodicos;
             int nPE = (vecProfessor.at(i)).nPEventos;

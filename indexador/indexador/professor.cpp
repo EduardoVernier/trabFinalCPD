@@ -248,9 +248,16 @@ string Informacoes(string path){
     dadosProfessor *prof = new dadosProfessor;
 
     if(parseProfessor(path,prof) == SUCCESS)
-        info = prof->area;
-    else
-        info = "Area nao encontrada";
+    {
+        info = prof->area + "\n\nPUBLICAÇÕES EM EVENTOS:\n";
+        for (unsigned i = 0; i < prof->nPubEventos-1; i++)
+            info.append("  "  + prof->pubEventos.at(i).titulo + " - (" + prof->pubEventos.at(i).ano + ")\n");
+        info = info + "\n\nPUBLICAÇÕES EM PERIODICOS:\n";
+        for (unsigned i = 0; i < prof->nPubPeriodicos-1; i++)
+            info.append("  "  + prof->pubPeriodicos.at(i).titulo + "\n");
+
+
+    }
     return info;
 }
 
