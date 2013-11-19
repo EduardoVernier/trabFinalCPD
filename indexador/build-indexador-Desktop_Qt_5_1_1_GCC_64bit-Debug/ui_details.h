@@ -31,9 +31,9 @@ public:
         if (Details->objectName().isEmpty())
             Details->setObjectName(QStringLiteral("Details"));
         Details->setEnabled(true);
-        Details->resize(480, 250);
-        Details->setMinimumSize(QSize(480, 250));
-        Details->setMaximumSize(QSize(480, 250));
+        Details->resize(520, 600);
+        Details->setMinimumSize(QSize(520, 600));
+        Details->setMaximumSize(QSize(520, 600));
         Details->setStyleSheet(QStringLiteral("background: url(:/new/prefix1/res/bg.png);"));
         label = new QLabel(Details);
         label->setObjectName(QStringLiteral("label"));
@@ -43,7 +43,14 @@ public:
         label->setStyleSheet(QStringLiteral("background: transparent;"));
         infoBox = new QTextEdit(Details);
         infoBox->setObjectName(QStringLiteral("infoBox"));
-        infoBox->setGeometry(QRect(10, 40, 461, 201));
+        infoBox->setGeometry(QRect(10, 40, 500, 540));
+        infoBox->setMinimumSize(QSize(500, 540));
+        infoBox->setMaximumSize(QSize(0, 0));
+        infoBox->setStyleSheet(QLatin1String("background: transparent;\n"
+"outline: none;\n"
+"border: 0px solid black;"));
+        infoBox->setAutoFormatting(QTextEdit::AutoBulletList);
+        infoBox->setTextInteractionFlags(Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse);
 
         retranslateUi(Details);
 

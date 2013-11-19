@@ -9,20 +9,20 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>480</width>
-    <height>250</height>
+    <width>520</width>
+    <height>600</height>
    </rect>
   </property>
   <property name="minimumSize">
    <size>
-    <width>480</width>
-    <height>250</height>
+    <width>520</width>
+    <height>600</height>
    </size>
   </property>
   <property name="maximumSize">
    <size>
-    <width>480</width>
-    <height>250</height>
+    <width>520</width>
+    <height>600</height>
    </size>
   </property>
   <property name="windowTitle">
@@ -64,9 +64,32 @@
     <rect>
      <x>10</x>
      <y>40</y>
-     <width>461</width>
-     <height>201</height>
+     <width>500</width>
+     <height>540</height>
     </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>500</width>
+     <height>540</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>0</width>
+     <height>0</height>
+    </size>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background: transparent;
+outline: none;
+border: 0px solid black;</string>
+   </property>
+   <property name="autoFormatting">
+    <set>QTextEdit::AutoNone</set>
+   </property>
+   <property name="textInteractionFlags">
+    <set>Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse</set>
    </property>
   </widget>
  </widget>
