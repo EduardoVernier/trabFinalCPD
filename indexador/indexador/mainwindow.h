@@ -34,10 +34,19 @@ private slots:
 
     void on_searchBar_textChanged(const QString &arg1);
 
+    void on_addCurriculoButton_triggered();
+
+
+    bool on_go(QString a);
+
 private:
     Ui::MainWindow *ui;
     void escreveNaTable();
     void escreveNaTableInverso();
+
+signals:
+    bool addQ();
+
 };
 
 #endif // MAINWINDOW_H

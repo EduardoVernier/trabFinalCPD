@@ -59,7 +59,6 @@ MainWindow::MainWindow(QWidget *parent) :  QMainWindow(parent),  ui(new Ui::Main
     /*   The GNU Standard C++ library uses a 3-part hybrid sorting algorithm: introsort is performed
      * first (introsort itself being a hybrid of quicksort and heap sort),to a maximum depth given
      * by 2×log2 n, where n is the number of elements, followed by an insertion sort on the result. */
-    cout << "\n\n";
 
     // Imprime nome de todos os professores contabilizados
     // for (unsigned i = 0; i < ordNome.size();i++)
@@ -93,7 +92,6 @@ MainWindow::MainWindow(QWidget *parent) :  QMainWindow(parent),  ui(new Ui::Main
 
     //ui->tableWidget->clearContents();
 
-    arqChaves.close();
 }
 
 MainWindow::~MainWindow()
@@ -175,6 +173,7 @@ void MainWindow::escreveNaTableInverso ()
         ui->tableWidget->setItem(vecProfessor.size()-1-i, 3, TotPubItem);
     }
 }
+
 
 
 void MainWindow::on_alfaButton_clicked()
@@ -316,4 +315,30 @@ void MainWindow::on_searchBar_textChanged(const QString &arg1)
             ui->tableWidget->setRowCount(j);
         }
     }
+}
+
+void MainWindow::on_addCurriculoButton_triggered()
+{
+    this->addQ();
+}
+
+
+bool MainWindow::on_go(QString a)
+{
+    //ui->Logo->setText(a);
+    if (getChavesProfessor(a.toStdString() ,prof)==0) // XML bem formado
+    {
+        //nProfs++;
+        vecProfessor.push_back(*prof);
+        on_alfaButton_clicked();
+
+
+        //if (int (prof->nome[0]) - 65 >= 0 ) // Preenche array com as iniciais de cada pessoa
+        //    letras[int (prof->nome[0]) - 65]++;
+        //else letras [26]++;
+
+        //arqChaves << (vecProfessor.at(i)).nome;
+        //arqChaves << (vecProfessor.at(i)).nomeArquivo;
+    }
+
 }

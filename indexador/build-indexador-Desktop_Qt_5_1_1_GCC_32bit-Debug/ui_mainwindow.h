@@ -18,6 +18,8 @@
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
 #include <QtWidgets/QMainWindow>
+#include <QtWidgets/QMenu>
+#include <QtWidgets/QMenuBar>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QTableWidget>
 #include <QtWidgets/QWidget>
@@ -27,6 +29,7 @@ QT_BEGIN_NAMESPACE
 class Ui_MainWindow
 {
 public:
+    QAction *addCurriculoButton;
     QWidget *centralWidget;
     QTableWidget *tableWidget;
     QPushButton *searchButton;
@@ -36,6 +39,8 @@ public:
     QPushButton *perButton;
     QPushButton *eventsButton;
     QPushButton *totalButton;
+    QMenuBar *menuBar;
+    QMenu *menuCurriculos;
 
     void setupUi(QMainWindow *MainWindow)
     {
@@ -45,6 +50,8 @@ public:
         MainWindow->setMinimumSize(QSize(940, 550));
         MainWindow->setMaximumSize(QSize(940, 550));
         MainWindow->setStyleSheet(QStringLiteral("background: url(:/new/prefix1/res/bg.png);"));
+        addCurriculoButton = new QAction(MainWindow);
+        addCurriculoButton->setObjectName(QStringLiteral("addCurriculoButton"));
         centralWidget = new QWidget(MainWindow);
         centralWidget->setObjectName(QStringLiteral("centralWidget"));
         tableWidget = new QTableWidget(centralWidget);
@@ -67,7 +74,7 @@ public:
         tableWidget->setSelectionBehavior(QAbstractItemView::SelectRows);
         tableWidget->setSortingEnabled(false);
         tableWidget->setCornerButtonEnabled(false);
-        tableWidget->horizontalHeader()->setVisible(true);
+        tableWidget->horizontalHeader()->setVisible(false);
         tableWidget->horizontalHeader()->setCascadingSectionResizes(true);
         tableWidget->horizontalHeader()->setDefaultSectionSize(180);
         tableWidget->horizontalHeader()->setHighlightSections(true);
@@ -182,6 +189,15 @@ public:
 "	border: 4px solid #00dddd;\n"
 "}"));
         MainWindow->setCentralWidget(centralWidget);
+        menuBar = new QMenuBar(MainWindow);
+        menuBar->setObjectName(QStringLiteral("menuBar"));
+        menuBar->setGeometry(QRect(0, 0, 940, 20));
+        menuCurriculos = new QMenu(menuBar);
+        menuCurriculos->setObjectName(QStringLiteral("menuCurriculos"));
+        MainWindow->setMenuBar(menuBar);
+
+        menuBar->addAction(menuCurriculos->menuAction());
+        menuCurriculos->addAction(addCurriculoButton);
 
         retranslateUi(MainWindow);
 
@@ -191,6 +207,7 @@ public:
     void retranslateUi(QMainWindow *MainWindow)
     {
         MainWindow->setWindowTitle(QApplication::translate("MainWindow", "Noodles", 0));
+        addCurriculoButton->setText(QApplication::translate("MainWindow", "Adicionar curr\303\255culo", 0));
         QTableWidgetItem *___qtablewidgetitem = tableWidget->horizontalHeaderItem(0);
         ___qtablewidgetitem->setText(QApplication::translate("MainWindow", "Nome", 0));
         QTableWidgetItem *___qtablewidgetitem1 = tableWidget->horizontalHeaderItem(1);
@@ -205,6 +222,7 @@ public:
         perButton->setText(QApplication::translate("MainWindow", "AP", 0));
         eventsButton->setText(QApplication::translate("MainWindow", "AE", 0));
         totalButton->setText(QApplication::translate("MainWindow", "Total", 0));
+        menuCurriculos->setTitle(QApplication::translate("MainWindow", "Curriculos", 0));
     } // retranslateUi
 
 };

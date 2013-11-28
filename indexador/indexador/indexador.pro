@@ -16,15 +16,18 @@ SOURCES += main.cpp\
         mainwindow.cpp \
     professor.cpp \
     Markup.cpp \
-    details.cpp
+    details.cpp \
+    addquerido.cpp
 
 HEADERS  += mainwindow.h \
     professor.h \
     Markup.h \
-    details.h
+    details.h \
+    addquerido.h
 
 FORMS    += mainwindow.ui \
-    details.ui
+    details.ui \
+    addquerido.ui
 
 RESOURCES += \
     Resources.qrc
