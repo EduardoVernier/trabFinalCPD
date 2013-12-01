@@ -11,7 +11,11 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Dialog</string>
+   <string>Adicionar Curriculo</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="Resources.qrc">
+    <normaloff>:/new/prefix1/doctor whoives.png</normaloff>:/new/prefix1/doctor whoives.png</iconset>
   </property>
   <widget class="QLineEdit" name="lineEdit">
    <property name="geometry">
@@ -50,6 +54,8 @@
    </property>
   </widget>
  </widget>
- <resources/>
+ <resources>
+  <include location="Resources.qrc"/>
+ </resources>
  <connections/>
 </ui>

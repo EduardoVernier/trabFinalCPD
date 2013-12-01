@@ -34,6 +34,9 @@ public:
         Details->resize(520, 600);
         Details->setMinimumSize(QSize(520, 600));
         Details->setMaximumSize(QSize(520, 600));
+        QIcon icon;
+        icon.addFile(QStringLiteral(":/new/prefix1/doctor whoives.png"), QSize(), QIcon::Normal, QIcon::Off);
+        Details->setWindowIcon(icon);
         Details->setStyleSheet(QStringLiteral("background: url(:/new/prefix1/res/bg.png);"));
         label = new QLabel(Details);
         label->setObjectName(QStringLiteral("label"));

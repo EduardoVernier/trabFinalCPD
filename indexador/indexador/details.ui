@@ -28,6 +28,10 @@
   <property name="windowTitle">
    <string>New Professor</string>
   </property>
+  <property name="windowIcon">
+   <iconset resource="Resources.qrc">
+    <normaloff>:/new/prefix1/doctor whoives.png</normaloff>:/new/prefix1/doctor whoives.png</iconset>
+  </property>
   <property name="styleSheet">
    <string notr="true">background: url(:/new/prefix1/res/bg.png);</string>
   </property>
@@ -93,6 +97,8 @@ border: 0px solid black;</string>
    </property>
   </widget>
  </widget>
- <resources/>
+ <resources>
+  <include location="Resources.qrc"/>
+ </resources>
  <connections/>
 </ui>

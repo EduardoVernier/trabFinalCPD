@@ -25,6 +25,10 @@
   <property name="windowTitle">
    <string>Noodles</string>
   </property>
+  <property name="windowIcon">
+   <iconset resource="Resources.qrc">
+    <normaloff>:/new/prefix1/doctor whoives.png</normaloff>:/new/prefix1/doctor whoives.png</iconset>
+  </property>
   <property name="styleSheet">
    <string notr="true">background: url(:/new/prefix1/res/bg.png);</string>
   </property>
@@ -174,9 +178,9 @@ QPushButton#alfaButton:pressed{
    <widget class="QLabel" name="Logo">
     <property name="geometry">
      <rect>
-      <x>350</x>
+      <x>300</x>
       <y>10</y>
-      <width>201</width>
+      <width>301</width>
       <height>51</height>
      </rect>
     </property>
@@ -190,10 +194,10 @@ QPushButton#alfaButton:pressed{
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true"/>
+     <string notr="true">background: transparent;</string>
     </property>
     <property name="text">
-     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:36pt; color:#444444;&quot;&gt;N&lt;/span&gt;&lt;span style=&quot; font-size:36pt; color:#a8c54a;&quot;&gt;oo&lt;/span&gt;&lt;span style=&quot; font-size:36pt; color:#0092b2;&quot;&gt;dles&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#2353c3;&quot;&gt;DOCTOR WHOIVES&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
    </widget>
    <widget class="QLineEdit" name="searchBar">
@@ -330,6 +334,8 @@ QPushButton#totalButton:pressed{
   </action>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
- <resources/>
+ <resources>
+  <include location="Resources.qrc"/>
+ </resources>
  <connections/>
 </ui>
